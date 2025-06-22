@@ -2,9 +2,11 @@ import pandas as pd
 from datetime import datetime
 from pathlib import Path
 from typing import List
-from models import AnnotatorStat
+from src.models import AnnotatorStat
 from sqlalchemy.orm import Session
 from sqlmodel import select
+from sqlalchemy.ext.asyncio import AsyncSession
+from src.models import AnnotatorStat
 
 from src.models import AnnotatorStat 
 
@@ -87,11 +89,10 @@ def process_all_languages(base_path: Path) -> List[AnnotatorStat]:
 
 
 
-def update_or_create_language_stat(db: Session, language: str, data: dict):
+async def update_or_create_language_stat(db: AsyncSession, language: str, data: dict):
     annotator_id = data.get("annotator_id")
     report_date = data.get("report_date")
 
-    # Ensure these fields exist
     if not annotator_id or not report_date:
         return
 
@@ -101,16 +102,14 @@ def update_or_create_language_stat(db: Session, language: str, data: dict):
         AnnotatorStat.report_date == report_date
     )
 
-    result = db.exec(stmt).first()
+    result = await db.execute(stmt)
+    existing = result.scalar_one_or_none()
 
-    if result:
-        # Update existing
+    if existing:
         for key, value in data.items():
-            if hasattr(result, key):
-                setattr(result, key, value)
+            if hasattr(existing, key):
+                setattr(existing, key, value)
     else:
-        # Create new
-        result = AnnotatorStat(**data)
-        db.add(result)
+        new_record = AnnotatorStat(**data)
+        db.add(new_record)
 
-    db.commit()

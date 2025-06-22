@@ -1,4 +1,4 @@
-from src.routes import github_webhook
+from src.routes import github_router
 from fastapi import FastAPI
 import uvicorn,os
 from contextlib import asynccontextmanager
@@ -50,9 +50,9 @@ app = FastAPI(
         "email": "uche@equalyz.ai",
     },
     terms_of_service="https://equalyz.ai/about-us/",
-    openapi_url=f"{version_prefix}/auth/openapi.json",
-    docs_url=f"{version_prefix}/data/docs",
-    redoc_url=f"{version_prefix}/data/redoc"
+    openapi_url=f"{version_prefix}/openapi.json",
+    docs_url=f"{version_prefix}/docs",
+    redoc_url=f"{version_prefix}/redoc"
 )
 
 
@@ -61,15 +61,19 @@ register_all_errors(app)
 register_middleware(app)
 
 
+@app.get(f"/")
+async def ping():
+    return JSONResponse(content={"status": "Welcome to African Voices API"})
 
-@app.get(f"{version_prefix}/data/health", tags=["Health"])
-async def health_check():
-    return JSONResponse(content={"status": "ok"})
+
+@app.get(f"{version_prefix}/health", tags=["Health"])
+async def ping():
+    return JSONResponse(content={"status": "pong"})
 
 
 
 app.include_router(
-    github_webhook,
+    github_router,
     prefix=f"{version_prefix}/data",
     tags=["Data"],
 )
@@ -79,12 +83,12 @@ app.include_router(
 
 if __name__ == "__main__":
     ENV = os.getenv("ENV", "development")
-    PORT = int(os.getenv("PORT", 10000))
+    PORT = int(os.getenv("PORT", 8000))
     HOST = "0.0.0.0" if ENV == "production" else "localhost"
 
     uvicorn.run(
         app="main:app",
-        host="0.0.0.0",
+        host="localhost",
         port=PORT,
         reload=True if ENV == "development" else False,
         proxy_headers=True
