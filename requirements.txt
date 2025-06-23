@@ -9,4 +9,8 @@ colorlog
 asyncpg
 python-dotenv
 pandas
-requests
+
+
+gspread 
+google-auth
+email-validator 
