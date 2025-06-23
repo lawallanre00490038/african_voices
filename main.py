@@ -89,8 +89,8 @@ if __name__ == "__main__":
 
     uvicorn.run(
         app="main:app",
-        host=HOST,
-        port=PORT,
+        host="0.0.0.0",
+        port=10000,
         reload=True if ENV == "development" else False,
         proxy_headers=True
     )
