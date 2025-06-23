@@ -5,11 +5,13 @@ from contextlib import asynccontextmanager
 from fastapi.requests import Request
 from typing import cast
 from fastapi.responses import JSONResponse
-
+from dotenv import load_dotenv
 from src.middleware import register_middleware
 from src.errors import register_all_errors
 
 from src.db import create_tables
+
+load_dotenv()
 
 
 version = "v1"
@@ -87,7 +89,7 @@ if __name__ == "__main__":
 
     uvicorn.run(
         app="main:app",
-        host="0.0.0.0",
+        host=HOST,
         port=PORT,
         reload=True if ENV == "development" else False,
         proxy_headers=True

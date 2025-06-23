@@ -1424,3 +1424,291 @@ FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\
 2025-06-23 04:04:40,986 - INFO - 127.0.0.1:55866 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
 2025-06-23 04:04:41,079 - INFO - 127.0.0.1:55866 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
 2025-06-23 04:04:49,672 - INFO - 127.0.0.1:55867 - GET /annotators/summary - Status: [92m200[0m - Time: 1.73s
+2025-06-23 05:16:45,652 - ERROR - Database integrity error at POST /github-webhook: (raised as a result of Query-invoked autoflush; consider using a session.no_autoflush block if this flush is occurring prematurely)
+(sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.NotNullViolationError'>: null value in column "id" of relation "annotator_stats" violates not-null constraint
+DETAIL:  Failing row contains (null, HAGS1M15, Joshua, hausa, 2025-06-20, 0, 0, 0, f, 2025-06-23).
+[SQL: UPDATE annotator_stats SET id=$1::INTEGER WHERE annotator_stats.id = $2::INTEGER]
+[parameters: (None, 1)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-06-23 05:16:45,682 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 545, in _prepare_and_execute
+    self._rows = deque(await prepared_stmt.fetch(*parameters))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\asyncpg\prepared_stmt.py", line 176, in fetch
+    data = await self.__bind_execute(args, 0, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\asyncpg\prepared_stmt.py", line 267, in __bind_execute
+    data, status, _ = await self.__do_execute(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\asyncpg\prepared_stmt.py", line 256, in __do_execute
+    return await executor(protocol)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "asyncpg\\protocol\\protocol.pyx", line 206, in bind_execute
+asyncpg.exceptions.NotNullViolationError: null value in column "id" of relation "annotator_stats" violates not-null constraint
+DETAIL:  Failing row contains (null, HAGS1M15, Joshua, hausa, 2025-06-20, 0, 0, 0, f, 2025-06-23).
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1963, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 943, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 580, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+            ^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 558, in _prepare_and_execute
+    self._handle_exception(error)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 508, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 792, in _handle_exception
+    raise translated_error from error
+sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_dbapi.IntegrityError: <class 'asyncpg.exceptions.NotNullViolationError'>: null value in column "id" of relation "annotator_stats" violates not-null constraint
+DETAIL:  Failing row contains (null, HAGS1M15, Joshua, hausa, 2025-06-20, 0, 0, 0, f, 2025-06-23).
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\routes.py", line 73, in github_webhook
+    await update_or_create_language_stat(db, a.language, a.dict())
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\process_data.py", line 105, in update_or_create_language_stat
+    result = await db.execute(stmt)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\ext\asyncio\session.py", line 463, in execute
+    result = await greenlet_spawn(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 203, in greenlet_spawn
+    result = context.switch(value)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2230, in _execute_internal
+    ) = compile_state_cls.orm_pre_session_exec(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\context.py", line 577, in orm_pre_session_exec
+    session._autoflush()
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 3065, in _autoflush
+    raise e.with_traceback(sys.exc_info()[2])
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 3054, in _autoflush
+    self.flush()
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4345, in flush
+    self._flush(objects)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4480, in _flush
+    with util.safe_reraise():
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4441, in _flush
+    flush_context.execute()
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 85, in save_obj
+    _emit_update_statements(
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 912, in _emit_update_statements
+    c = connection.execute(
+        ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1415, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1637, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1982, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2351, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1963, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 943, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 580, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+            ^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 558, in _prepare_and_execute
+    self._handle_exception(error)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 508, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 792, in _handle_exception
+    raise translated_error from error
+sqlalchemy.exc.IntegrityError: (raised as a result of Query-invoked autoflush; consider using a session.no_autoflush block if this flush is occurring prematurely)
+(sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.NotNullViolationError'>: null value in column "id" of relation "annotator_stats" violates not-null constraint
+DETAIL:  Failing row contains (null, HAGS1M15, Joshua, hausa, 2025-06-20, 0, 0, 0, f, 2025-06-23).
+[SQL: UPDATE annotator_stats SET id=$1::INTEGER WHERE annotator_stats.id = $2::INTEGER]
+[parameters: (None, 1)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+2025-06-23 05:16:45,683 - INFO - 127.0.0.1:59424 - POST /github-webhook - Status: [93m400[0m - Time: 17.48s - Reason: Database error occurred
+2025-06-23 05:20:17,990 - ERROR - Database integrity error at POST /github-webhook: (raised as a result of Query-invoked autoflush; consider using a session.no_autoflush block if this flush is occurring prematurely)
+(sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.NotNullViolationError'>: null value in column "id" of relation "annotator_stats" violates not-null constraint
+DETAIL:  Failing row contains (null, HAGS1M15, Joshua, hausa, 2025-06-20, 0, 0, 0, f, 2025-06-23).
+[SQL: UPDATE annotator_stats SET id=$1::INTEGER WHERE annotator_stats.id = $2::INTEGER]
+[parameters: (None, 1)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-06-23 05:20:17,993 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 545, in _prepare_and_execute
+    self._rows = deque(await prepared_stmt.fetch(*parameters))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\asyncpg\prepared_stmt.py", line 176, in fetch
+    data = await self.__bind_execute(args, 0, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\asyncpg\prepared_stmt.py", line 267, in __bind_execute
+    data, status, _ = await self.__do_execute(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\asyncpg\prepared_stmt.py", line 256, in __do_execute
+    return await executor(protocol)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "asyncpg\\protocol\\protocol.pyx", line 206, in bind_execute
+asyncpg.exceptions.NotNullViolationError: null value in column "id" of relation "annotator_stats" violates not-null constraint
+DETAIL:  Failing row contains (null, HAGS1M15, Joshua, hausa, 2025-06-20, 0, 0, 0, f, 2025-06-23).
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1963, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 943, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 580, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+            ^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 558, in _prepare_and_execute
+    self._handle_exception(error)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 508, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 792, in _handle_exception
+    raise translated_error from error
+sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_dbapi.IntegrityError: <class 'asyncpg.exceptions.NotNullViolationError'>: null value in column "id" of relation "annotator_stats" violates not-null constraint
+DETAIL:  Failing row contains (null, HAGS1M15, Joshua, hausa, 2025-06-20, 0, 0, 0, f, 2025-06-23).
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\routes.py", line 73, in github_webhook
+    await update_or_create_language_stat(db, a.language, a.dict())
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\process_data.py", line 105, in update_or_create_language_stat
+    result = await db.execute(stmt)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\ext\asyncio\session.py", line 463, in execute
+    result = await greenlet_spawn(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 203, in greenlet_spawn
+    result = context.switch(value)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2230, in _execute_internal
+    ) = compile_state_cls.orm_pre_session_exec(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\context.py", line 577, in orm_pre_session_exec
+    session._autoflush()
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 3065, in _autoflush
+    raise e.with_traceback(sys.exc_info()[2])
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 3054, in _autoflush
+    self.flush()
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4345, in flush
+    self._flush(objects)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4480, in _flush
+    with util.safe_reraise():
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4441, in _flush
+    flush_context.execute()
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 85, in save_obj
+    _emit_update_statements(
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 912, in _emit_update_statements
+    c = connection.execute(
+        ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1415, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1637, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1982, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2351, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1963, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 943, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 580, in execute
+    self._adapt_connection.await_(
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+            ^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 558, in _prepare_and_execute
+    self._handle_exception(error)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 508, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 792, in _handle_exception
+    raise translated_error from error
+sqlalchemy.exc.IntegrityError: (raised as a result of Query-invoked autoflush; consider using a session.no_autoflush block if this flush is occurring prematurely)
+(sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.NotNullViolationError'>: null value in column "id" of relation "annotator_stats" violates not-null constraint
+DETAIL:  Failing row contains (null, HAGS1M15, Joshua, hausa, 2025-06-20, 0, 0, 0, f, 2025-06-23).
+[SQL: UPDATE annotator_stats SET id=$1::INTEGER WHERE annotator_stats.id = $2::INTEGER]
+[parameters: (None, 1)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+2025-06-23 05:20:17,995 - INFO - 127.0.0.1:59502 - POST /github-webhook - Status: [93m400[0m - Time: 4.57s - Reason: Database error occurred
+2025-06-23 05:27:39,318 - INFO - 127.0.0.1:59708 - POST /github-webhook - Status: [92m200[0m - Time: 64.53s
+2025-06-23 05:33:59,751 - INFO - 127.0.0.1:59836 - POST /github-webhook - Status: [92m200[0m - Time: 62.52s

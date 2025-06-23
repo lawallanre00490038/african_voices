@@ -112,4 +112,3 @@ async def update_or_create_language_stat(db: AsyncSession, language: str, data: 
     else:
         new_record = AnnotatorStat(**data)
         db.add(new_record)
-
