@@ -61,9 +61,9 @@ register_all_errors(app)
 register_middleware(app)
 
 
-@app.get(f"/")
-async def ping():
-    return JSONResponse(content={"status": "Welcome to African Voices API"})
+@app.get("/", include_in_schema=False)
+async def root():
+    return {"status": "Welcome to African Voices API"}
 
 
 @app.get(f"{version_prefix}/health", tags=["Health"])
