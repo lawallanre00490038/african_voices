@@ -1,6 +1,7 @@
 # ----------- STEP 4: How to Run -----------
 # Clone your repo locally in the project folder:
 #
+65750bc763851039bd4bf3c48f46c484141f0c0a9b79cdbb9e55c7c611aa6952
  git clone git@github.com:your-org/language-data.git data_repo
 
 # Then run the server:

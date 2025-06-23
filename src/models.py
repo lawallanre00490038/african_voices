@@ -3,6 +3,7 @@ from typing import Optional
 from datetime import date
 
 class AnnotatorStat(SQLModel, table=True):
+    __tablename__ = "annotator_stats"
     id: Optional[int] = Field(default=None, primary_key=True)
     annotator_id: str = Field(index=True)
     name: str

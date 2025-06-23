@@ -9,7 +9,7 @@ from fastapi.responses import JSONResponse
 from src.middleware import register_middleware
 from src.errors import register_all_errors
 
-# from auth_service.db import create_tables
+from src.db import create_tables
 
 
 version = "v1"
@@ -33,7 +33,7 @@ version_prefix = f"/api/{version}"
 @asynccontextmanager
 async def lifespan(app: FastAPI):
 
-    # await create_tables() # This will bypass alembic migrations
+    await create_tables() # This will bypass alembic migrations
 
     yield
 
@@ -74,7 +74,6 @@ async def ping():
 
 app.include_router(
     github_router,
-    prefix=f"{version_prefix}/data",
     tags=["Data"],
 )
 
