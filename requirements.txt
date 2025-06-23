@@ -9,3 +9,4 @@ colorlog
 asyncpg
 python-dotenv
 pandas
+requests
