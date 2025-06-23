@@ -14,3 +14,4 @@ pandas
 gspread 
 google-auth
 email-validator 
+openpyxl
