@@ -4131,3 +4131,1116 @@ gspread.exceptions.APIError: APIError: [429]: Quota exceeded for quota metric 'W
 2025-06-23 13:59:58,989 - INFO - 127.0.0.1:54337 - POST /audio_count_summary - Status: [92m200[0m - Time: 18.68s
 2025-06-23 14:03:05,229 - INFO - 127.0.0.1:54339 - GET /google_sheet_count-audio - Status: [92m200[0m - Time: 174.08s
 2025-06-23 14:05:03,886 - INFO - 127.0.0.1:54357 - GET /google_sheet_count_summary - Status: [92m200[0m - Time: 289.10s
+2025-06-23 14:42:28,196 - INFO - 127.0.0.1:50683 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 14:42:28,539 - INFO - 127.0.0.1:50683 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.05s
+2025-06-23 14:43:13,948 - INFO - 127.0.0.1:50684 - POST /audio_data_summary - Status: [92m200[0m - Time: 32.79s
+2025-06-23 14:49:48,578 - INFO - 127.0.0.1:50890 - GET /stats-json - Status: [92m200[0m - Time: 4.47s
+2025-06-23 15:13:05,008 - INFO - 127.0.0.1:51437 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 15:13:05,389 - INFO - 127.0.0.1:51437 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.05s
+2025-06-23 15:14:29,464 - INFO - 127.0.0.1:51519 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 15:14:29,465 - INFO - 127.0.0.1:51521 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 15:14:29,467 - INFO - 127.0.0.1:51520 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 15:14:29,752 - INFO - 127.0.0.1:51521 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
+2025-06-23 15:14:39,729 - INFO - 127.0.0.1:51534 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 15:14:40,120 - INFO - 127.0.0.1:51534 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-06-23 15:15:35,868 - INFO - 127.0.0.1:51537 - GET /annotators - Status: [92m200[0m - Time: 1.59s
+2025-06-23 15:19:04,542 - ERROR - Unhandled error for GET /annotator-data
+Traceback (most recent call last):
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 148, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\streams\memory.py", line 126, in receive
+    raise EndOfStream from None
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\middleware.py", line 100, in log_requests
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
+    raise app_exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\concurrency.py", line 37, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2470, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\routes.py", line 126, in get_annotator_data
+    return fetch_all_annotator_data()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\utils\annotator.py", line 100, in fetch_all_annotator_data
+    push_to_sheet("recording_stats", all_stats_df)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\utils\annotator.py", line 72, in push_to_sheet
+    worksheet.append_rows([df.columns.tolist()] + df.values.tolist(), value_input_option="USER_ENTERED")
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\gspread\worksheet.py", line 1862, in append_rows
+    res = self.client.values_append(self.spreadsheet_id, range_label, params, body)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\gspread\http_client.py", line 191, in values_append
+    r = self.request("post", url, params=params, json=body)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\gspread\http_client.py", line 114, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\google\auth\transport\requests.py", line 540, in request
+    response = super(AuthorizedSession, self).request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\sessions.py", line 575, in request
+    prep = self.prepare_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\sessions.py", line 484, in prepare_request
+    p.prepare(
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\models.py", line 370, in prepare
+    self.prepare_body(data, files, json)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\models.py", line 512, in prepare_body
+    raise InvalidJSONError(ve, request=self)
+requests.exceptions.InvalidJSONError: Out of range float values are not JSON compliant: nan
+2025-06-23 15:19:04,560 - ERROR - Unhandled exception at GET /annotator-data: Out of range float values are not JSON compliant: nan
+2025-06-23 15:19:04,568 - ERROR -   + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_utils.py", line 76, in collapse_excgroups
+  |     yield
+  |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 177, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\trustedhost.py", line 36, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 176, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |   File "C:\Users\Olanrewaju Lawal\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_utils.py", line 82, in collapse_excgroups
+    |     raise exc
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 178, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\middleware.py", line 103, in log_requests
+    |     raise exc
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\middleware.py", line 100, in log_requests
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
+    |     raise app_exc
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    |     await route.handle(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    |     return await run_in_threadpool(dependant.call, **values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\concurrency.py", line 37, in run_in_threadpool
+    |     return await anyio.to_thread.run_sync(func)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    |     return await get_async_backend().run_sync_in_worker_thread(
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2470, in run_sync_in_worker_thread
+    |     return await future
+    |            ^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 967, in run
+    |     result = context.run(func, *args)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\routes.py", line 126, in get_annotator_data
+    |     return fetch_all_annotator_data()
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\utils\annotator.py", line 100, in fetch_all_annotator_data
+    |     push_to_sheet("recording_stats", all_stats_df)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\utils\annotator.py", line 72, in push_to_sheet
+    |     worksheet.append_rows([df.columns.tolist()] + df.values.tolist(), value_input_option="USER_ENTERED")
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\gspread\worksheet.py", line 1862, in append_rows
+    |     res = self.client.values_append(self.spreadsheet_id, range_label, params, body)
+    |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\gspread\http_client.py", line 191, in values_append
+    |     r = self.request("post", url, params=params, json=body)
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\gspread\http_client.py", line 114, in request
+    |     response = self.session.request(
+    |                ^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\google\auth\transport\requests.py", line 540, in request
+    |     response = super(AuthorizedSession, self).request(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\sessions.py", line 575, in request
+    |     prep = self.prepare_request(req)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\sessions.py", line 484, in prepare_request
+    |     p.prepare(
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\models.py", line 370, in prepare
+    |     self.prepare_body(data, files, json)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\models.py", line 512, in prepare_body
+    |     raise InvalidJSONError(ve, request=self)
+    | requests.exceptions.InvalidJSONError: Out of range float values are not JSON compliant: nan
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\trustedhost.py", line 36, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 176, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+  File "C:\Users\Olanrewaju Lawal\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_utils.py", line 82, in collapse_excgroups
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 178, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\middleware.py", line 103, in log_requests
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\middleware.py", line 100, in log_requests
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
+    raise app_exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\concurrency.py", line 37, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2470, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\routes.py", line 126, in get_annotator_data
+    return fetch_all_annotator_data()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\utils\annotator.py", line 100, in fetch_all_annotator_data
+    push_to_sheet("recording_stats", all_stats_df)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\utils\annotator.py", line 72, in push_to_sheet
+    worksheet.append_rows([df.columns.tolist()] + df.values.tolist(), value_input_option="USER_ENTERED")
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\gspread\worksheet.py", line 1862, in append_rows
+    res = self.client.values_append(self.spreadsheet_id, range_label, params, body)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\gspread\http_client.py", line 191, in values_append
+    r = self.request("post", url, params=params, json=body)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\gspread\http_client.py", line 114, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\google\auth\transport\requests.py", line 540, in request
+    response = super(AuthorizedSession, self).request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\sessions.py", line 575, in request
+    prep = self.prepare_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\sessions.py", line 484, in prepare_request
+    p.prepare(
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\models.py", line 370, in prepare
+    self.prepare_body(data, files, json)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\models.py", line 512, in prepare_body
+    raise InvalidJSONError(ve, request=self)
+requests.exceptions.InvalidJSONError: Out of range float values are not JSON compliant: nan
+
+2025-06-23 15:20:27,112 - INFO - 127.0.0.1:51673 - POST /audio_data_summary - Status: [92m200[0m - Time: 17.22s
+2025-06-23 15:21:33,304 - INFO - 127.0.0.1:51729 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 15:21:33,447 - INFO - 127.0.0.1:51729 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
+2025-06-23 15:21:50,044 - ERROR - Unhandled error for GET /annotator-data
+Traceback (most recent call last):
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 148, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\streams\memory.py", line 126, in receive
+    raise EndOfStream from None
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\middleware.py", line 100, in log_requests
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
+    raise app_exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\concurrency.py", line 37, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2470, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\routes.py", line 126, in get_annotator_data
+    return fetch_all_annotator_data()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\utils\annotator.py", line 66, in fetch_all_annotator_data
+    assigned_df = read_csv_from_github(annotator, "assigned_data.tsv")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\utils\annotator.py", line 37, in read_csv_from_github
+    df = pd.read_csv(io.StringIO(res.text))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 626, in _read
+    return parser.read(nrows)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1923, in read
+    ) = self._engine.read(  # type: ignore[attr-defined]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 234, in read
+    chunks = self._reader.read_low_memory(nrows)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/parsers.pyx", line 838, in pandas._libs.parsers.TextReader.read_low_memory
+  File "pandas/_libs/parsers.pyx", line 905, in pandas._libs.parsers.TextReader._read_rows
+  File "pandas/_libs/parsers.pyx", line 874, in pandas._libs.parsers.TextReader._tokenize_rows
+  File "pandas/_libs/parsers.pyx", line 891, in pandas._libs.parsers.TextReader._check_tokenize_status
+  File "pandas/_libs/parsers.pyx", line 2061, in pandas._libs.parsers.raise_parser_error
+pandas.errors.ParserError: Error tokenizing data. C error: Expected 1 fields in line 3, saw 2
+
+2025-06-23 15:21:50,114 - ERROR - Unhandled exception at GET /annotator-data: Error tokenizing data. C error: Expected 1 fields in line 3, saw 2
+
+2025-06-23 15:21:50,119 - ERROR -   + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_utils.py", line 76, in collapse_excgroups
+  |     yield
+  |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 177, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\trustedhost.py", line 36, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 176, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |   File "C:\Users\Olanrewaju Lawal\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_utils.py", line 82, in collapse_excgroups
+    |     raise exc
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 178, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\middleware.py", line 103, in log_requests
+    |     raise exc
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\middleware.py", line 100, in log_requests
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
+    |     raise app_exc
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    |     await route.handle(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    |     return await run_in_threadpool(dependant.call, **values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\concurrency.py", line 37, in run_in_threadpool
+    |     return await anyio.to_thread.run_sync(func)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    |     return await get_async_backend().run_sync_in_worker_thread(
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2470, in run_sync_in_worker_thread
+    |     return await future
+    |            ^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 967, in run
+    |     result = context.run(func, *args)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\routes.py", line 126, in get_annotator_data
+    |     return fetch_all_annotator_data()
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\utils\annotator.py", line 66, in fetch_all_annotator_data
+    |     assigned_df = read_csv_from_github(annotator, "assigned_data.tsv")
+    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\utils\annotator.py", line 37, in read_csv_from_github
+    |     df = pd.read_csv(io.StringIO(res.text))
+    |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    |     return _read(filepath_or_buffer, kwds)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 626, in _read
+    |     return parser.read(nrows)
+    |            ^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1923, in read
+    |     ) = self._engine.read(  # type: ignore[attr-defined]
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 234, in read
+    |     chunks = self._reader.read_low_memory(nrows)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "pandas/_libs/parsers.pyx", line 838, in pandas._libs.parsers.TextReader.read_low_memory
+    |   File "pandas/_libs/parsers.pyx", line 905, in pandas._libs.parsers.TextReader._read_rows
+    |   File "pandas/_libs/parsers.pyx", line 874, in pandas._libs.parsers.TextReader._tokenize_rows
+    |   File "pandas/_libs/parsers.pyx", line 891, in pandas._libs.parsers.TextReader._check_tokenize_status
+    |   File "pandas/_libs/parsers.pyx", line 2061, in pandas._libs.parsers.raise_parser_error
+    | pandas.errors.ParserError: Error tokenizing data. C error: Expected 1 fields in line 3, saw 2
+    | 
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\trustedhost.py", line 36, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 176, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+  File "C:\Users\Olanrewaju Lawal\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_utils.py", line 82, in collapse_excgroups
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 178, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\middleware.py", line 103, in log_requests
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\middleware.py", line 100, in log_requests
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
+    raise app_exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\concurrency.py", line 37, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2470, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\routes.py", line 126, in get_annotator_data
+    return fetch_all_annotator_data()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\utils\annotator.py", line 66, in fetch_all_annotator_data
+    assigned_df = read_csv_from_github(annotator, "assigned_data.tsv")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\utils\annotator.py", line 37, in read_csv_from_github
+    df = pd.read_csv(io.StringIO(res.text))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 626, in _read
+    return parser.read(nrows)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1923, in read
+    ) = self._engine.read(  # type: ignore[attr-defined]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 234, in read
+    chunks = self._reader.read_low_memory(nrows)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/parsers.pyx", line 838, in pandas._libs.parsers.TextReader.read_low_memory
+  File "pandas/_libs/parsers.pyx", line 905, in pandas._libs.parsers.TextReader._read_rows
+  File "pandas/_libs/parsers.pyx", line 874, in pandas._libs.parsers.TextReader._tokenize_rows
+  File "pandas/_libs/parsers.pyx", line 891, in pandas._libs.parsers.TextReader._check_tokenize_status
+  File "pandas/_libs/parsers.pyx", line 2061, in pandas._libs.parsers.raise_parser_error
+pandas.errors.ParserError: Error tokenizing data. C error: Expected 1 fields in line 3, saw 2
+
+
+2025-06-23 15:23:37,027 - INFO - 127.0.0.1:51793 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 15:23:37,150 - INFO - 127.0.0.1:51793 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
+2025-06-23 15:26:44,248 - INFO - 127.0.0.1:52023 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 15:26:44,449 - INFO - 127.0.0.1:52023 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
+2025-06-23 15:31:52,613 - ERROR - Unhandled error for GET /annotator-data
+Traceback (most recent call last):
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 148, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\streams\memory.py", line 126, in receive
+    raise EndOfStream from None
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\middleware.py", line 100, in log_requests
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
+    raise app_exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\concurrency.py", line 37, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2470, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\routes.py", line 126, in get_annotator_data
+    return fetch_all_annotator_data()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\utils\annotator.py", line 89, in fetch_all_annotator_data
+    print(all_stats_df,"\n\n", all_tsv_df)
+          ^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'all_stats_df' where it is not associated with a value
+2025-06-23 15:31:52,648 - ERROR - Unhandled exception at GET /annotator-data: cannot access local variable 'all_stats_df' where it is not associated with a value
+2025-06-23 15:31:52,689 - ERROR -   + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_utils.py", line 76, in collapse_excgroups
+  |     yield
+  |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 177, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\trustedhost.py", line 36, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 176, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |   File "C:\Users\Olanrewaju Lawal\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_utils.py", line 82, in collapse_excgroups
+    |     raise exc
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 178, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\middleware.py", line 103, in log_requests
+    |     raise exc
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\middleware.py", line 100, in log_requests
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
+    |     raise app_exc
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    |     await route.handle(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    |     return await run_in_threadpool(dependant.call, **values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\concurrency.py", line 37, in run_in_threadpool
+    |     return await anyio.to_thread.run_sync(func)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    |     return await get_async_backend().run_sync_in_worker_thread(
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2470, in run_sync_in_worker_thread
+    |     return await future
+    |            ^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 967, in run
+    |     result = context.run(func, *args)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\routes.py", line 126, in get_annotator_data
+    |     return fetch_all_annotator_data()
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\utils\annotator.py", line 89, in fetch_all_annotator_data
+    |     print(all_stats_df,"\n\n", all_tsv_df)
+    |           ^^^^^^^^^^^^
+    | UnboundLocalError: cannot access local variable 'all_stats_df' where it is not associated with a value
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\trustedhost.py", line 36, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 176, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+  File "C:\Users\Olanrewaju Lawal\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_utils.py", line 82, in collapse_excgroups
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 178, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\middleware.py", line 103, in log_requests
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\middleware.py", line 100, in log_requests
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
+    raise app_exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\concurrency.py", line 37, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2470, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\routes.py", line 126, in get_annotator_data
+    return fetch_all_annotator_data()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\utils\annotator.py", line 89, in fetch_all_annotator_data
+    print(all_stats_df,"\n\n", all_tsv_df)
+          ^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'all_stats_df' where it is not associated with a value
+
+2025-06-23 15:34:06,180 - INFO - 127.0.0.1:52559 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 15:34:06,396 - INFO - 127.0.0.1:52559 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
+2025-06-23 15:36:31,231 - INFO - 127.0.0.1:52702 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 15:36:31,360 - INFO - 127.0.0.1:52702 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-06-23 15:52:31,864 - ERROR - Unhandled error for GET /annotator-data
+Traceback (most recent call last):
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 148, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\streams\memory.py", line 126, in receive
+    raise EndOfStream from None
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\middleware.py", line 100, in log_requests
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
+    raise app_exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\concurrency.py", line 37, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2470, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\routes.py", line 126, in get_annotator_data
+    return fetch_all_annotator_data()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\utils\annotator.py", line 95, in fetch_all_annotator_data
+    write_to_google_sheet("recording_stats", all_stats_df)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\utils\annotator.py", line 65, in write_to_google_sheet
+    worksheet.append_rows([df.columns.tolist()] + df.values.tolist(), value_input_option="USER_ENTERED")
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\gspread\worksheet.py", line 1862, in append_rows
+    res = self.client.values_append(self.spreadsheet_id, range_label, params, body)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\gspread\http_client.py", line 191, in values_append
+    r = self.request("post", url, params=params, json=body)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\gspread\http_client.py", line 114, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\google\auth\transport\requests.py", line 540, in request
+    response = super(AuthorizedSession, self).request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\sessions.py", line 575, in request
+    prep = self.prepare_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\sessions.py", line 484, in prepare_request
+    p.prepare(
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\models.py", line 370, in prepare
+    self.prepare_body(data, files, json)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\models.py", line 512, in prepare_body
+    raise InvalidJSONError(ve, request=self)
+requests.exceptions.InvalidJSONError: Out of range float values are not JSON compliant: nan
+2025-06-23 15:52:31,881 - ERROR - Unhandled exception at GET /annotator-data: Out of range float values are not JSON compliant: nan
+2025-06-23 15:52:31,888 - ERROR -   + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_utils.py", line 76, in collapse_excgroups
+  |     yield
+  |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 177, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\trustedhost.py", line 36, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 176, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |   File "C:\Users\Olanrewaju Lawal\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_utils.py", line 82, in collapse_excgroups
+    |     raise exc
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 178, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\middleware.py", line 103, in log_requests
+    |     raise exc
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\middleware.py", line 100, in log_requests
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
+    |     raise app_exc
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    |     await route.handle(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    |     return await run_in_threadpool(dependant.call, **values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\concurrency.py", line 37, in run_in_threadpool
+    |     return await anyio.to_thread.run_sync(func)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    |     return await get_async_backend().run_sync_in_worker_thread(
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2470, in run_sync_in_worker_thread
+    |     return await future
+    |            ^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 967, in run
+    |     result = context.run(func, *args)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\routes.py", line 126, in get_annotator_data
+    |     return fetch_all_annotator_data()
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\utils\annotator.py", line 95, in fetch_all_annotator_data
+    |     write_to_google_sheet("recording_stats", all_stats_df)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\utils\annotator.py", line 65, in write_to_google_sheet
+    |     worksheet.append_rows([df.columns.tolist()] + df.values.tolist(), value_input_option="USER_ENTERED")
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\gspread\worksheet.py", line 1862, in append_rows
+    |     res = self.client.values_append(self.spreadsheet_id, range_label, params, body)
+    |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\gspread\http_client.py", line 191, in values_append
+    |     r = self.request("post", url, params=params, json=body)
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\gspread\http_client.py", line 114, in request
+    |     response = self.session.request(
+    |                ^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\google\auth\transport\requests.py", line 540, in request
+    |     response = super(AuthorizedSession, self).request(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\sessions.py", line 575, in request
+    |     prep = self.prepare_request(req)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\sessions.py", line 484, in prepare_request
+    |     p.prepare(
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\models.py", line 370, in prepare
+    |     self.prepare_body(data, files, json)
+    |   File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\models.py", line 512, in prepare_body
+    |     raise InvalidJSONError(ve, request=self)
+    | requests.exceptions.InvalidJSONError: Out of range float values are not JSON compliant: nan
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\trustedhost.py", line 36, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 176, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+  File "C:\Users\Olanrewaju Lawal\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_utils.py", line 82, in collapse_excgroups
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 178, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\middleware.py", line 103, in log_requests
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\middleware.py", line 100, in log_requests
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 156, in call_next
+    raise app_exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\starlette\concurrency.py", line 37, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2470, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 967, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\routes.py", line 126, in get_annotator_data
+    return fetch_all_annotator_data()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\utils\annotator.py", line 95, in fetch_all_annotator_data
+    write_to_google_sheet("recording_stats", all_stats_df)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\src\utils\annotator.py", line 65, in write_to_google_sheet
+    worksheet.append_rows([df.columns.tolist()] + df.values.tolist(), value_input_option="USER_ENTERED")
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\gspread\worksheet.py", line 1862, in append_rows
+    res = self.client.values_append(self.spreadsheet_id, range_label, params, body)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\gspread\http_client.py", line 191, in values_append
+    r = self.request("post", url, params=params, json=body)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\gspread\http_client.py", line 114, in request
+    response = self.session.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\google\auth\transport\requests.py", line 540, in request
+    response = super(AuthorizedSession, self).request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\sessions.py", line 575, in request
+    prep = self.prepare_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\sessions.py", line 484, in prepare_request
+    p.prepare(
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\models.py", line 370, in prepare
+    self.prepare_body(data, files, json)
+  File "C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend\.venv\Lib\site-packages\requests\models.py", line 512, in prepare_body
+    raise InvalidJSONError(ve, request=self)
+requests.exceptions.InvalidJSONError: Out of range float values are not JSON compliant: nan
+
+2025-06-23 15:52:41,601 - INFO - 127.0.0.1:53450 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 15:52:41,798 - INFO - 127.0.0.1:53450 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-06-23 15:55:23,648 - INFO - 127.0.0.1:53829 - GET / - Status: [92m200[0m - Time: 0.00s
+2025-06-23 15:55:26,336 - INFO - 127.0.0.1:53829 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 15:55:26,643 - INFO - 127.0.0.1:53829 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
