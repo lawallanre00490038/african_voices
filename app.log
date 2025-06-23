@@ -4130,3 +4130,4 @@ gspread.exceptions.APIError: APIError: [429]: Quota exceeded for quota metric 'W
 2025-06-23 13:59:19,656 - INFO - 127.0.0.1:54300 - GET /annotators/summary - Status: [92m200[0m - Time: 1.34s
 2025-06-23 13:59:58,989 - INFO - 127.0.0.1:54337 - POST /audio_count_summary - Status: [92m200[0m - Time: 18.68s
 2025-06-23 14:03:05,229 - INFO - 127.0.0.1:54339 - GET /google_sheet_count-audio - Status: [92m200[0m - Time: 174.08s
+2025-06-23 14:05:03,886 - INFO - 127.0.0.1:54357 - GET /google_sheet_count_summary - Status: [92m200[0m - Time: 289.10s
