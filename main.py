@@ -82,6 +82,21 @@ app.include_router(
 
 
 
+# if __name__ == "__main__":
+#     ENV = os.getenv("ENV", "development")
+#     PORT = int(os.getenv("PORT", 10000))
+#     HOST = "0.0.0.0" if ENV == "production" else "localhost"
+
+#     uvicorn.run(
+#         app="main:app",
+#         host=HOST,
+#         port=PORT,
+#         reload=True if ENV == "development" else False,
+#         proxy_headers=True
+#     )
+
+
+
 if __name__ == "__main__":
     ENV = os.getenv("ENV", "development")
     PORT = int(os.getenv("PORT", 10000))
