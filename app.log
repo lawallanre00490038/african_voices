@@ -4052,3 +4052,22 @@ Traceback (most recent call last):
     raise APIError(response)
 gspread.exceptions.APIError: APIError: [429]: Quota exceeded for quota metric 'Write requests' and limit 'Write requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:56777475528'.
 
+2025-06-23 10:37:12,913 - INFO - 127.0.0.1:62373 - GET / - Status: [92m200[0m - Time: 0.00s
+2025-06-23 10:37:13,127 - INFO - 127.0.0.1:62373 - GET /favicon.ico - Status: [93m404[0m - Time: 0.00s - Reason: Not Found
+2025-06-23 10:37:15,835 - INFO - 127.0.0.1:62373 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 10:37:16,144 - INFO - 127.0.0.1:62373 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.03s
+2025-06-23 10:39:30,416 - INFO - 127.0.0.1:62434 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 10:39:30,509 - INFO - 127.0.0.1:62434 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.03s
+2025-06-23 10:39:44,099 - ERROR - HTTPException: Missing optional dependency 'openpyxl'.  Use pip or conda to install openpyxl. at POST /audio_count_summary
+2025-06-23 10:39:44,100 - INFO - 127.0.0.1:62435 - POST /audio_count_summary - Status: [91m500[0m - Time: 0.01s - Reason: Missing optional dependency 'openpyxl'.  Use pip or conda to install openpyxl.
+2025-06-23 10:40:19,249 - INFO - 127.0.0.1:62472 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 10:40:19,336 - INFO - 127.0.0.1:62472 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-06-23 10:40:47,022 - INFO - 127.0.0.1:62472 - POST /audio_count_summary - Status: [92m200[0m - Time: 24.63s
+2025-06-23 10:43:03,799 - INFO - 127.0.0.1:62593 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 10:43:03,976 - INFO - 127.0.0.1:62593 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.03s
+2025-06-23 10:45:38,820 - INFO - 127.0.0.1:62654 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 10:45:38,968 - INFO - 127.0.0.1:62654 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.03s
+2025-06-23 10:51:53,982 - INFO - 127.0.0.1:63274 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 10:51:54,052 - INFO - 127.0.0.1:63274 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
+2025-06-23 10:55:58,080 - INFO - 127.0.0.1:63700 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 10:55:58,257 - INFO - 127.0.0.1:63700 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s

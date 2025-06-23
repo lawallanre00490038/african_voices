@@ -17,15 +17,7 @@ load_dotenv()
 version = "v1"
 
 description = """
-A REST API on the Auth Services for the AI Governance Readiness Assessment Platform.
-
-This API enables:
-- AI governance readiness assessments based on the STANDARD framework.
-- Dynamic scoring and generation of readiness reports.
-- User management, including assessment tracking and analytics.
-- Secure storage and retrieval of assessment data.
-- PDF generation for assessment reports.
-- Compliance with GDPR/NDPR regulations.
+A REST API on the African Voices project.
 """
 
 version_prefix = f"/api/{version}"
