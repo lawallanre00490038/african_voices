@@ -4071,3 +4071,62 @@ gspread.exceptions.APIError: APIError: [429]: Quota exceeded for quota metric 'W
 2025-06-23 10:51:54,052 - INFO - 127.0.0.1:63274 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
 2025-06-23 10:55:58,080 - INFO - 127.0.0.1:63700 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
 2025-06-23 10:55:58,257 - INFO - 127.0.0.1:63700 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-06-23 11:05:26,364 - INFO - 127.0.0.1:55968 - GET / - Status: [92m200[0m - Time: 0.00s
+2025-06-23 11:05:26,615 - INFO - 127.0.0.1:55968 - GET /favicon.ico - Status: [93m404[0m - Time: 0.00s - Reason: Not Found
+2025-06-23 11:05:27,827 - INFO - 127.0.0.1:55968 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 11:05:28,195 - INFO - 127.0.0.1:55968 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
+2025-06-23 11:05:31,186 - INFO - 127.0.0.1:55968 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 11:05:31,555 - INFO - 127.0.0.1:55968 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-06-23 12:09:35,382 - INFO - 127.0.0.1:51047 - GET / - Status: [92m200[0m - Time: 0.00s
+2025-06-23 12:09:35,672 - INFO - 127.0.0.1:51047 - GET /favicon.ico - Status: [93m404[0m - Time: 0.00s - Reason: Not Found
+2025-06-23 12:09:39,186 - INFO - 127.0.0.1:51047 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 12:09:39,575 - INFO - 127.0.0.1:51047 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-06-23 12:13:28,311 - INFO - 127.0.0.1:51272 - GET / - Status: [92m200[0m - Time: 0.00s
+2025-06-23 12:13:31,305 - INFO - 127.0.0.1:51272 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 12:13:31,779 - INFO - 127.0.0.1:51272 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-06-23 12:22:46,674 - INFO - 127.0.0.1:51639 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 12:22:46,846 - INFO - 127.0.0.1:51639 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-06-23 12:23:07,656 - INFO - 127.0.0.1:51639 - POST /audio_count_summary - Status: [92m200[0m - Time: 17.28s
+2025-06-23 12:28:20,958 - INFO - 127.0.0.1:51784 - GET /annotators - Status: [92m200[0m - Time: 3.28s
+2025-06-23 13:11:09,205 - INFO - 127.0.0.1:52660 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 13:11:09,271 - INFO - 127.0.0.1:52660 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-06-23 13:16:09,220 - INFO - 127.0.0.1:52661 - GET /google_sheet_count_summary - Status: [92m200[0m - Time: 265.06s
+2025-06-23 13:24:42,998 - INFO - 127.0.0.1:53421 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 13:24:43,156 - INFO - 127.0.0.1:53421 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-06-23 13:25:16,357 - INFO - 127.0.0.1:53444 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 13:25:16,425 - INFO - 127.0.0.1:53444 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
+2025-06-23 13:26:02,028 - ERROR - HTTPException: Failed to fetch or parse CSV: HTTP Error 404: Not Found at GET /stats-json/yoruba/20250623
+2025-06-23 13:26:02,038 - INFO - 127.0.0.1:53445 - GET /stats-json/yoruba/20250623 - Status: [91m500[0m - Time: 1.02s - Reason: Failed to fetch or parse CSV: HTTP Error 404: Not Found
+2025-06-23 13:27:56,075 - ERROR - HTTPException: Failed to fetch or parse CSV: HTTP Error 404: Not Found at GET /stats-json/hausa/20250623
+2025-06-23 13:27:56,077 - INFO - 127.0.0.1:53489 - GET /stats-json/hausa/20250623 - Status: [91m500[0m - Time: 0.79s - Reason: Failed to fetch or parse CSV: HTTP Error 404: Not Found
+2025-06-23 13:28:03,879 - ERROR - HTTPException: Failed to fetch or parse CSV: HTTP Error 404: Not Found at GET /stats-json/hausa/20250623
+2025-06-23 13:28:03,881 - INFO - 127.0.0.1:53491 - GET /stats-json/hausa/20250623 - Status: [91m500[0m - Time: 0.59s - Reason: Failed to fetch or parse CSV: HTTP Error 404: Not Found
+2025-06-23 13:28:08,509 - ERROR - HTTPException: Failed to fetch or parse CSV: HTTP Error 404: Not Found at GET /stats-json/hausa/20250620
+2025-06-23 13:28:08,514 - INFO - 127.0.0.1:53491 - GET /stats-json/hausa/20250620 - Status: [91m500[0m - Time: 1.17s - Reason: Failed to fetch or parse CSV: HTTP Error 404: Not Found
+2025-06-23 13:28:19,588 - ERROR - HTTPException: Failed to fetch or parse CSV: HTTP Error 404: Not Found at GET /stats-json/hausa/20250623
+2025-06-23 13:28:19,593 - INFO - 127.0.0.1:53500 - GET /stats-json/hausa/20250623 - Status: [91m500[0m - Time: 1.03s - Reason: Failed to fetch or parse CSV: HTTP Error 404: Not Found
+2025-06-23 13:32:55,509 - INFO - 127.0.0.1:53610 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 13:32:55,647 - INFO - 127.0.0.1:53610 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.03s
+2025-06-23 13:33:56,961 - INFO - 127.0.0.1:53640 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 13:33:57,170 - INFO - 127.0.0.1:53640 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.03s
+2025-06-23 13:35:17,907 - ERROR - HTTPException: Failed to parse CSV: module 'pandas.compat' has no attribute 'StringIO' at GET /stats-json/yoruba/20250623
+2025-06-23 13:35:17,909 - INFO - 127.0.0.1:53679 - GET /stats-json/yoruba/20250623 - Status: [91m500[0m - Time: 0.91s - Reason: Failed to parse CSV: module 'pandas.compat' has no attribute 'StringIO'
+2025-06-23 13:41:46,828 - ERROR - HTTPException: Failed to parse CSV: module 'pandas.compat' has no attribute 'StringIO' at GET /stats-json/yoruba/20250623
+2025-06-23 13:41:46,830 - INFO - 127.0.0.1:53831 - GET /stats-json/yoruba/20250623 - Status: [91m500[0m - Time: 0.64s - Reason: Failed to parse CSV: module 'pandas.compat' has no attribute 'StringIO'
+2025-06-23 13:41:52,658 - ERROR - HTTPException: Failed to parse CSV: module 'pandas.compat' has no attribute 'StringIO' at GET /stats-json/yoruba/20250623
+2025-06-23 13:41:52,666 - INFO - 127.0.0.1:53832 - GET /stats-json/yoruba/20250623 - Status: [91m500[0m - Time: 0.44s - Reason: Failed to parse CSV: module 'pandas.compat' has no attribute 'StringIO'
+2025-06-23 13:45:37,372 - ERROR - HTTPException: Failed to parse CSV: name 'io' is not defined at GET /stats-json/yoruba/20250623
+2025-06-23 13:45:37,390 - INFO - 127.0.0.1:53931 - GET /stats-json/yoruba/20250623 - Status: [91m500[0m - Time: 0.45s - Reason: Failed to parse CSV: name 'io' is not defined
+2025-06-23 13:47:35,847 - INFO - 127.0.0.1:53987 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 13:47:35,999 - INFO - 127.0.0.1:53987 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
+2025-06-23 13:47:44,628 - INFO - 127.0.0.1:53988 - GET /stats-json/yoruba/20250623 - Status: [92m200[0m - Time: 0.92s
+2025-06-23 13:54:55,565 - INFO - 127.0.0.1:54209 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 13:54:55,766 - INFO - 127.0.0.1:54209 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-06-23 13:55:05,413 - INFO - 127.0.0.1:54210 - GET /stats-json - Status: [92m200[0m - Time: 3.87s
+2025-06-23 13:58:29,072 - INFO - 127.0.0.1:54298 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-23 13:58:29,242 - INFO - 127.0.0.1:54298 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-06-23 13:58:37,134 - INFO - 127.0.0.1:54298 - GET /stats-json - Status: [92m200[0m - Time: 2.94s
+2025-06-23 13:58:57,626 - INFO - 127.0.0.1:54299 - GET /annotators - Status: [92m200[0m - Time: 1.75s
+2025-06-23 13:59:19,656 - INFO - 127.0.0.1:54300 - GET /annotators/summary - Status: [92m200[0m - Time: 1.34s
+2025-06-23 13:59:58,989 - INFO - 127.0.0.1:54337 - POST /audio_count_summary - Status: [92m200[0m - Time: 18.68s
+2025-06-23 14:03:05,229 - INFO - 127.0.0.1:54339 - GET /google_sheet_count-audio - Status: [92m200[0m - Time: 174.08s
