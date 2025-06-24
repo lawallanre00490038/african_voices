@@ -1,4 +1,3 @@
-# webhook_trigger.py
 import hmac
 import hashlib
 import json, os
@@ -8,10 +7,12 @@ from dotenv import load_dotenv
 load_dotenv()
 
 URL = os.environ.get("WEBSITE_URL")
+GITHUB_SECRET = os.getenv("GITHUB_SECRET")
+
+print("🌐 URL ENV value loaded:", URL)
+
 
 def trigger_github_webhook():
-    GITHUB_SECRET = b'ThisIsASecretForAfricanVoices123456!@#'
-
     payload = {
         "ref": "refs/heads/main",
         "pusher": {"name": "abumafrim"},
@@ -19,18 +20,21 @@ def trigger_github_webhook():
     }
 
     body = json.dumps(payload).encode("utf-8")
-    signature = "sha256=" + hmac.new(GITHUB_SECRET, body, hashlib.sha256).hexdigest()
+    signature = "sha256=" + hmac.new(GITHUB_SECRET.encode(), body, hashlib.sha256).hexdigest()
 
     headers = {
         "Content-Type": "application/json",
         "x-hub-signature-256": signature
     }
 
-    print("This is the payload:", payload)
+    print("📦 Payload:", payload)
+    print("🔐 Signature:", signature)
+    print("📡 URL:", URL)
 
-    response = requests.post(URL, headers=headers, data=body)
-    
     try:
+        response = requests.post(URL, headers=headers, data=body, timeout=10)
+        response.raise_for_status()
         return {"status": response.status_code, "response": response.json()}
-    except Exception:
-        return {"status": response.status_code, "raw_response": response.text}
+    except Exception as e:
+        print("❌ Error sending webhook:", e)
+        return {"status": "failed", "error": str(e)}

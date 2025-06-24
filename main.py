@@ -80,9 +80,8 @@ app.include_router(
 
 #     uvicorn.run(
 #         app="main:app",
-#         host=HOST,
+#         host="localhost",
 #         port=PORT,
-#         reload=True if ENV == "development" else False,
 #         proxy_headers=True
 #     )
 
