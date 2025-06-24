@@ -5247,3 +5247,15 @@ requests.exceptions.InvalidJSONError: Out of range float values are not JSON com
 2025-06-23 16:48:53,092 - INFO - 127.0.0.1:56406 - GET / - Status: [92m200[0m - Time: 0.00s
 2025-06-23 16:49:08,244 - INFO - 127.0.0.1:56407 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
 2025-06-23 16:49:08,687 - INFO - 127.0.0.1:56407 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.03s
+2025-06-23 18:21:30,504 - INFO - 127.0.0.1:51737 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.01s
+2025-06-23 18:21:30,510 - INFO - 127.0.0.1:51736 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.02s
+2025-06-23 18:21:34,005 - INFO - 127.0.0.1:51737 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.03s
+2025-06-23 18:21:56,850 - INFO - 127.0.0.1:51740 - GET /stats-json-600-average - Status: [92m200[0m - Time: 8.29s
+2025-06-24 03:38:17,436 - INFO - 127.0.0.1:54773 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-24 03:38:28,801 - INFO - 127.0.0.1:54774 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.03s
+2025-06-24 03:45:17,884 - INFO - 127.0.0.1:55585 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-24 03:46:06,828 - INFO - 127.0.0.1:55586 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.04s
+2025-06-24 03:47:10,819 - INFO - 127.0.0.1:55631 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.01s
+2025-06-24 03:47:11,142 - INFO - 127.0.0.1:55631 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.04s
+2025-06-24 03:47:12,080 - INFO - 127.0.0.1:55632 - GET /stats-json/yoruba - Status: [92m200[0m - Time: 1.27s
+2025-06-24 03:47:34,116 - INFO - 127.0.0.1:55633 - GET /stats-json/yoruba - Status: [92m200[0m - Time: 0.61s
