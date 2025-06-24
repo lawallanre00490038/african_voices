@@ -149,23 +149,12 @@ def read_csv_from_github(annotator, file_name):
 
 
 def get_annotators_json():
-    folders = get_github_folders()
-    assigned_data = []
-    recording_stats = []
-
-    for annotator in folders:
-        assigned_df = read_csv_from_github(annotator, "assigned_data.tsv")
-        stats_df = read_csv_from_github(annotator, "recording_stats.csv")
-
-        if assigned_df is not None:
-            assigned_data.append(assigned_df)
-        if stats_df is not None:
-            recording_stats.append(stats_df)
-
+    assigned_data, recording_stats = fetch_annotator_data()
     if not assigned_data and not recording_stats:
         raise HTTPException(status_code=404, detail="No data found.")
 
     result = []
+
     if assigned_data:
         all_assigned = pd.concat(assigned_data, ignore_index=True)
         result += all_assigned.to_dict(orient="records")
@@ -175,6 +164,22 @@ def get_annotators_json():
         result += all_stats.to_dict(orient="records")
 
     return result
+
+
+def push_annotators_to_sheet():
+    assigned_data, recording_stats = fetch_annotator_data()
+    if not assigned_data and not recording_stats:
+        raise HTTPException(status_code=404, detail="No valid data found.")
+
+    if assigned_data:
+        all_assigned = pd.concat(assigned_data, ignore_index=True)
+        write_to_google_sheet("assigned_data", all_assigned)
+
+    if recording_stats:
+        all_stats = pd.concat(recording_stats, ignore_index=True)
+        write_to_google_sheet("recording_stats", all_stats)
+
+    return {"message": "Sheets updated successfully"}
 
 
 
@@ -205,6 +210,26 @@ def read_csv_from_github(annotator, file_name):
         print(f"⚠️ Skipping {annotator}/{file_name}: {e}")
         return None
 
+
+def fetch_annotator_data():
+    folders = get_github_folders()
+    assigned_data = []
+    recording_stats = []
+
+    for annotator in folders:
+        assigned_df = read_csv_from_github(annotator, "assigned_data.tsv")
+        stats_df = read_csv_from_github(annotator, "recording_stats.csv")
+
+        if assigned_df is not None:
+            assigned_data.append(assigned_df)
+        if stats_df is not None:
+            recording_stats.append(stats_df)
+
+    return assigned_data, recording_stats
+
+
+
+
 def write_to_google_sheet(sheet_name: str, df: pd.DataFrame):
     creds = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
     client = gspread.authorize(creds)
@@ -215,7 +240,13 @@ def write_to_google_sheet(sheet_name: str, df: pd.DataFrame):
         worksheet = client.open_by_key(SHEET_ID).add_worksheet(title=sheet_name, rows="1000", cols="20")
 
     worksheet.clear()
-    worksheet.append_rows([df.columns.tolist()] + df.values.tolist(), value_input_option="USER_ENTERED")
+
+    # Convert all to strings, fill NaNs with empty string
+    cleaned_df = df.fillna("")
+    worksheet.append_rows(
+        [cleaned_df.columns.tolist()] + cleaned_df.values.tolist(),
+        value_input_option="USER_ENTERED"
+    )
 
 
 def push_annotators_to_sheet():
