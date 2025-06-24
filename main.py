@@ -8,7 +8,7 @@ from fastapi.responses import JSONResponse
 from dotenv import load_dotenv
 from src.middleware import register_middleware
 from src.errors import register_all_errors
-
+from src.utils.audio_data_summary_folder.audio_summary import audio_data
 from src.db import create_tables
 
 load_dotenv()
@@ -69,19 +69,18 @@ async def ping():
 app.include_router(
     github_router
 )
-
+app.include_router(
+    audio_data,
+    tags=["Audio Data Summary in JSON"],
+)
 
 
 
 # if __name__ == "__main__":
-#     ENV = os.getenv("ENV", "development")
-#     PORT = int(os.getenv("PORT", 8000))
-#     HOST = "0.0.0.0" if ENV == "production" else "localhost"
-
 #     uvicorn.run(
 #         app="main:app",
 #         host="localhost",
-#         port=PORT,
+#         port=8000,
 #         proxy_headers=True
 #     )
 

@@ -6019,3 +6019,48 @@ ValueError: Out of range float values are not JSON compliant: nan
 2025-06-24 05:55:43,857 - INFO - ::1:50319 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
 2025-06-24 05:55:43,944 - INFO - ::1:50319 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
 2025-06-24 05:56:06,973 - INFO - ::1:50319 - GET /trigger-webhook - Status: [92m200[0m - Time: 20.04s
+2025-06-24 08:24:30,020 - INFO - ::1:61002 - GET / - Status: [92m200[0m - Time: 0.00s
+2025-06-24 08:24:35,889 - INFO - ::1:61001 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-24 08:24:36,239 - INFO - ::1:61001 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-06-24 08:36:44,225 - INFO - ::1:61404 - GET /annotator-data - Status: [92m200[0m - Time: 284.55s
+2025-06-24 08:47:40,742 - INFO - ::1:62118 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-24 08:47:40,867 - INFO - ::1:62118 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
+2025-06-24 08:47:49,678 - INFO - ::1:62119 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-24 08:47:49,862 - INFO - ::1:62119 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-06-24 08:50:01,821 - INFO - ::1:62148 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-24 08:50:02,040 - INFO - ::1:62148 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
+2025-06-24 08:50:02,182 - INFO - ::1:62148 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-24 08:50:02,237 - INFO - ::1:62148 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-06-24 08:50:14,561 - ERROR - HTTPException: Failed to process sheet: 500: Failed to download Excel file at GET /audio_data_summary/yoruba-to-json
+2025-06-24 08:50:14,567 - INFO - ::1:62149 - GET /audio_data_summary/yoruba-to-json - Status: [91m500[0m - Time: 1.48s - Reason: Failed to process sheet: 500: Failed to download Excel file
+2025-06-24 08:52:36,257 - INFO - ::1:62206 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-24 08:52:36,526 - INFO - ::1:62206 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-06-24 08:52:43,901 - ERROR - HTTPException: Failed to process sheet: 500: Excel file not found locally at GET /audio_data_summary/yoruba-to-json
+2025-06-24 08:52:43,902 - INFO - ::1:62207 - GET /audio_data_summary/yoruba-to-json - Status: [91m500[0m - Time: 0.00s - Reason: Failed to process sheet: 500: Excel file not found locally
+2025-06-24 08:52:44,960 - ERROR - HTTPException: Failed to process sheet: 500: Excel file not found locally at GET /audio_data_summary/yoruba-to-json
+2025-06-24 08:52:44,961 - INFO - ::1:62207 - GET /audio_data_summary/yoruba-to-json - Status: [91m500[0m - Time: 0.00s - Reason: Failed to process sheet: 500: Excel file not found locally
+2025-06-24 08:53:20,222 - INFO - ::1:62227 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-24 08:53:20,393 - INFO - ::1:62227 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-06-24 08:54:13,237 - INFO - ::1:62228 - POST /audio_data_summary - Status: [92m200[0m - Time: 33.41s
+2025-06-24 09:04:45,550 - INFO - 127.0.0.1:62543 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-24 09:04:45,728 - INFO - 127.0.0.1:62543 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
+2025-06-24 09:05:24,142 - INFO - 127.0.0.1:62541 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-24 09:05:24,217 - INFO - 127.0.0.1:62541 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-06-24 09:05:25,691 - INFO - 127.0.0.1:62541 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-24 09:05:25,873 - INFO - 127.0.0.1:62541 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-06-24 09:05:38,176 - INFO - 127.0.0.1:62542 - GET /audio_data_summary-to-json - Status: [92m200[0m - Time: 5.06s
+2025-06-24 09:05:59,863 - INFO - ::1:62579 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-24 09:06:00,080 - INFO - ::1:62579 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-06-24 09:06:06,532 - INFO - ::1:62579 - GET /audio_data_summary-to-json - Status: [92m200[0m - Time: 2.28s
+2025-06-24 09:06:37,766 - INFO - ::1:62580 - GET /audio_data_summary-to-json - Status: [92m200[0m - Time: 2.45s
+2025-06-24 09:06:55,581 - INFO - ::1:62592 - GET /audio_data_summary-to-json["pidgin"] - Status: [93m404[0m - Time: 0.00s - Reason: Not Found
+2025-06-24 09:07:15,025 - INFO - ::1:62599 - GET /audio_data_summary/yoruba-to-json - Status: [92m200[0m - Time: 2.10s
+2025-06-24 09:10:26,729 - INFO - ::1:62667 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-24 09:10:26,895 - INFO - ::1:62667 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.03s
+2025-06-24 09:10:37,866 - INFO - ::1:62668 - GET /audio_data_summary/yoruba-to-json - Status: [92m200[0m - Time: 4.74s
+2025-06-24 09:19:29,491 - INFO - ::1:62818 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-24 09:19:29,671 - INFO - ::1:62818 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-06-24 09:40:20,882 - INFO - ::1:63315 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-24 09:40:21,074 - INFO - ::1:63315 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.03s
+2025-06-24 09:40:48,549 - INFO - ::1:63316 - GET /annotator_summary-to-json - Status: [92m200[0m - Time: 0.84s
+2025-06-24 09:41:16,597 - INFO - ::1:63358 - GET /annotator_summary-to-json - Status: [92m200[0m - Time: 1.12s
