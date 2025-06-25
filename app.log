@@ -6084,3 +6084,32 @@ ValueError: Out of range float values are not JSON compliant: nan
 2025-06-25 15:32:59,924 - INFO - ::1:62095 - GET /stats-summary - Status: [92m200[0m - Time: 5.11s
 2025-06-25 15:37:06,430 - INFO - ::1:62243 - GET /stats-summary - Status: [92m200[0m - Time: 3.19s
 2025-06-25 15:39:12,399 - INFO - ::1:62297 - GET /stats-summary - Status: [92m200[0m - Time: 6.69s
+2025-06-25 17:03:30,399 - INFO - ::1:49963 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-25 17:03:31,062 - INFO - ::1:49963 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.03s
+2025-06-25 17:06:25,946 - ERROR - HTTPException: ('Connection aborted.', ConnectionAbortedError(10053, 'An established connection was aborted by the software in your host machine', None, 10053, None)) at POST /audio_data_summary_to_multiple_sheets
+2025-06-25 17:06:26,029 - INFO - ::1:50160 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 122.79s - Reason: ('Connection aborted.', ConnectionAbortedError(10053, 'An established connection was aborted by the software in your host machine', None, 10053, None))
+2025-06-25 17:07:45,454 - INFO - ::1:50630 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-25 17:07:45,620 - INFO - ::1:50630 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
+2025-06-25 17:08:02,761 - ERROR - HTTPException:  at POST /audio_data_summary_to_multiple_sheets
+2025-06-25 17:08:02,761 - INFO - ::1:50630 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 14.26s - Reason: 
+2025-06-25 17:09:00,876 - INFO - ::1:50707 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-25 17:09:00,979 - INFO - ::1:50707 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-06-25 17:09:28,880 - ERROR - HTTPException:  at POST /audio_data_summary_to_multiple_sheets
+2025-06-25 17:09:28,882 - INFO - ::1:50712 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 24.90s - Reason: 
+2025-06-25 17:09:52,922 - INFO - ::1:50767 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-25 17:09:53,179 - INFO - ::1:50767 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
+2025-06-25 17:12:20,577 - INFO - ::1:50767 - POST /audio_data_summary_to_multiple_sheets - Status: [92m200[0m - Time: 144.87s
+2025-06-25 17:18:09,775 - INFO - ::1:51684 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-25 17:18:09,966 - INFO - ::1:51684 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-06-25 17:21:01,668 - INFO - ::1:51684 - POST /audio_data_summary_to_multiple_sheets - Status: [92m200[0m - Time: 168.67s
+2025-06-25 17:27:36,688 - INFO - ::1:52938 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-25 17:27:36,850 - INFO - ::1:52938 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-06-25 17:30:54,132 - INFO - ::1:52938 - POST /audio_data_summary_to_multiple_sheets - Status: [92m200[0m - Time: 194.48s
+2025-06-25 17:34:18,698 - INFO - ::1:53679 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-25 17:34:18,701 - INFO - ::1:53680 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-25 17:34:18,825 - INFO - ::1:53680 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-06-25 17:35:02,735 - ERROR - HTTPException:  at POST /audio_data_summary_to_multiple_sheets
+2025-06-25 17:35:02,736 - INFO - ::1:53681 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 34.86s - Reason: 
+2025-06-25 17:56:43,277 - INFO - ::1:53007 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-25 17:56:43,417 - INFO - ::1:53007 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
+2025-06-25 17:59:08,477 - INFO - ::1:53007 - POST /audio_data_summary_to_multiple_sheets - Status: [92m200[0m - Time: 142.06s
