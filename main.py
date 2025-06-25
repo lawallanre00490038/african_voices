@@ -27,7 +27,7 @@ version_prefix = f"/api/{version}"
 @asynccontextmanager
 async def lifespan(app: FastAPI):
 
-    await create_tables() # This will bypass alembic migrations
+    await create_tables()
 
     yield
 
