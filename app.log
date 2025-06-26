@@ -6113,3 +6113,26 @@ ValueError: Out of range float values are not JSON compliant: nan
 2025-06-25 17:56:43,277 - INFO - ::1:53007 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
 2025-06-25 17:56:43,417 - INFO - ::1:53007 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
 2025-06-25 17:59:08,477 - INFO - ::1:53007 - POST /audio_data_summary_to_multiple_sheets - Status: [92m200[0m - Time: 142.06s
+2025-06-25 22:59:03,778 - INFO - ::1:65103 - GET / - Status: [92m200[0m - Time: 0.00s
+2025-06-25 22:59:03,843 - INFO - ::1:65103 - GET /favicon.ico - Status: [93m404[0m - Time: 0.00s - Reason: Not Found
+2025-06-25 23:00:27,987 - INFO - ::1:65225 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-25 23:00:28,381 - INFO - ::1:65225 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.03s
+2025-06-25 23:03:15,731 - INFO - ::1:49244 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-25 23:03:15,930 - INFO - ::1:49244 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-06-25 23:04:58,993 - ERROR - HTTPException: HTTPSConnectionPool(host='sheets.googleapis.com', port=443): Max retries exceeded with url: /v4/spreadsheets/1CIgBxcKNpwphlxhmP7oAmYR2aMyEeRbntZoH_bJJnuw/values/%27main%27:append?valueInputOption=USER_ENTERED (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2406)'))) at POST /audio_data_summary_to_multiple_sheets
+2025-06-25 23:04:58,994 - INFO - ::1:49244 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 99.16s - Reason: HTTPSConnectionPool(host='sheets.googleapis.com', port=443): Max retries exceeded with url: /v4/spreadsheets/1CIgBxcKNpwphlxhmP7oAmYR2aMyEeRbntZoH_bJJnuw/values/%27main%27:append?valueInputOption=USER_ENTERED (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2406)')))
+2025-06-25 23:06:44,893 - INFO - ::1:49377 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-25 23:06:44,985 - INFO - ::1:49377 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-06-25 23:11:24,879 - ERROR - HTTPException: HTTPSConnectionPool(host='sheets.googleapis.com', port=443): Max retries exceeded with url: /v4/spreadsheets/1CIgBxcKNpwphlxhmP7oAmYR2aMyEeRbntZoH_bJJnuw/values/%27main%27:append?valueInputOption=USER_ENTERED (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2406)'))) at POST /audio_data_summary_to_multiple_sheets
+2025-06-25 23:11:24,890 - INFO - ::1:49378 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 258.03s - Reason: HTTPSConnectionPool(host='sheets.googleapis.com', port=443): Max retries exceeded with url: /v4/spreadsheets/1CIgBxcKNpwphlxhmP7oAmYR2aMyEeRbntZoH_bJJnuw/values/%27main%27:append?valueInputOption=USER_ENTERED (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2406)')))
+2025-06-25 23:16:32,845 - INFO - ::1:50613 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-25 23:16:32,996 - INFO - ::1:50613 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-06-25 23:16:54,215 - ERROR - HTTPException: [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:2559) at POST /audio_data_summary_to_multiple_sheets
+2025-06-25 23:16:54,218 - INFO - ::1:50613 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 18.07s - Reason: [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:2559)
+2025-06-25 23:18:13,249 - INFO - ::1:50696 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-25 23:18:13,404 - INFO - ::1:50696 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-06-25 23:22:26,403 - ERROR - HTTPException: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')) at POST /audio_data_summary_to_multiple_sheets
+2025-06-25 23:22:26,403 - INFO - ::1:50696 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 248.52s - Reason: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2025-06-26 03:48:26,920 - INFO - ::1:52018 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-26 03:48:27,109 - INFO - ::1:52018 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-06-26 03:53:30,682 - INFO - ::1:52018 - POST /audio_data_summary_to_multiple_sheets - Status: [92m200[0m - Time: 299.47s
