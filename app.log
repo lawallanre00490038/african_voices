@@ -6136,3 +6136,24 @@ ValueError: Out of range float values are not JSON compliant: nan
 2025-06-26 03:48:26,920 - INFO - ::1:52018 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
 2025-06-26 03:48:27,109 - INFO - ::1:52018 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
 2025-06-26 03:53:30,682 - INFO - ::1:52018 - POST /audio_data_summary_to_multiple_sheets - Status: [92m200[0m - Time: 299.47s
+2025-06-26 12:01:26,093 - INFO - ::1:60467 - GET / - Status: [92m200[0m - Time: 0.00s
+2025-06-26 12:01:26,278 - INFO - ::1:60467 - GET /favicon.ico - Status: [93m404[0m - Time: 0.00s - Reason: Not Found
+2025-06-26 12:01:32,169 - INFO - ::1:60468 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-26 12:01:32,607 - INFO - ::1:60468 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
+2025-06-26 12:09:08,552 - ERROR - HTTPException: write_sheet_to_workbook_multiple() takes 2 positional arguments but 3 were given at POST /audio_data_summary_to_multiple_sheets
+2025-06-26 12:09:08,553 - INFO - ::1:60984 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 293.95s - Reason: write_sheet_to_workbook_multiple() takes 2 positional arguments but 3 were given
+2025-06-26 12:11:15,507 - INFO - ::1:62031 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-26 12:11:15,635 - INFO - ::1:62031 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.03s
+2025-06-26 12:15:53,064 - ERROR - HTTPException: write_sheet_to_workbook_multiple() takes 2 positional arguments but 3 were given at POST /audio_data_summary_to_multiple_sheets
+2025-06-26 12:15:53,065 - INFO - ::1:62077 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 232.28s - Reason: write_sheet_to_workbook_multiple() takes 2 positional arguments but 3 were given
+2025-06-26 12:18:48,568 - INFO - ::1:62668 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-26 12:18:48,717 - INFO - ::1:62668 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-06-26 12:22:52,020 - ERROR - HTTPException: write_sheet_to_workbook_multiple() takes 2 positional arguments but 3 were given at POST /audio_data_summary_to_multiple_sheets
+2025-06-26 12:22:52,021 - INFO - ::1:62668 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 240.37s - Reason: write_sheet_to_workbook_multiple() takes 2 positional arguments but 3 were given
+2025-06-26 12:23:13,273 - INFO - ::1:63022 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-26 12:23:13,379 - INFO - ::1:63022 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
+2025-06-26 12:27:28,909 - ERROR - HTTPException:  at POST /audio_data_summary_to_multiple_sheets
+2025-06-26 12:27:28,911 - INFO - ::1:63022 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 252.56s - Reason: 
+2025-06-26 12:30:46,979 - INFO - ::1:63697 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-26 12:30:47,184 - INFO - ::1:63697 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-06-26 12:43:11,102 - INFO - ::1:63697 - POST /audio_data_summary_to_multiple_sheets - Status: [92m200[0m - Time: 740.85s
