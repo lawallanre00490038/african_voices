@@ -6157,3 +6157,31 @@ ValueError: Out of range float values are not JSON compliant: nan
 2025-06-26 12:30:46,979 - INFO - ::1:63697 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
 2025-06-26 12:30:47,184 - INFO - ::1:63697 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
 2025-06-26 12:43:11,102 - INFO - ::1:63697 - POST /audio_data_summary_to_multiple_sheets - Status: [92m200[0m - Time: 740.85s
+2025-06-26 13:10:44,473 - INFO - ::1:53538 - GET / - Status: [92m200[0m - Time: 0.00s
+2025-06-26 13:10:48,693 - INFO - ::1:53538 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-26 13:10:48,964 - INFO - ::1:53538 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.03s
+2025-06-26 13:12:42,966 - ERROR - HTTPException: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Read timed out. (read timeout=None) at POST /audio_data_summary_to_sheets
+2025-06-26 13:12:42,972 - INFO - ::1:53607 - POST /audio_data_summary_to_sheets - Status: [91m500[0m - Time: 25.81s - Reason: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Read timed out. (read timeout=None)
+2025-06-26 13:17:30,141 - ERROR - HTTPException: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)) at POST /audio_data_summary_to_sheets
+2025-06-26 13:17:30,144 - INFO - ::1:54703 - POST /audio_data_summary_to_sheets - Status: [91m500[0m - Time: 18.54s - Reason: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2025-06-26 13:17:52,823 - INFO - ::1:54827 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-26 13:17:52,982 - INFO - ::1:54827 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-06-26 13:19:51,206 - ERROR - HTTPException: APIError: [500]: Internal error encountered. at POST /audio_data_summary_to_sheets
+2025-06-26 13:19:51,213 - INFO - ::1:54967 - POST /audio_data_summary_to_sheets - Status: [91m500[0m - Time: 110.45s - Reason: APIError: [500]: Internal error encountered.
+2025-06-26 13:21:58,068 - INFO - ::1:55384 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-26 13:21:58,225 - INFO - ::1:55384 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-06-26 13:23:13,973 - ERROR - HTTPException: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Read timed out. (read timeout=None) at POST /audio_data_summary_to_sheets
+2025-06-26 13:23:13,979 - INFO - ::1:55383 - POST /audio_data_summary_to_sheets - Status: [91m500[0m - Time: 58.88s - Reason: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Read timed out. (read timeout=None)
+2025-06-26 13:40:46,072 - INFO - ::1:57500 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-26 13:40:46,336 - INFO - ::1:57500 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-06-26 13:42:06,336 - ERROR - HTTPException: HTTPSConnectionPool(host='sheets.googleapis.com', port=443): Max retries exceeded with url: /v4/spreadsheets/1JW8mRPgOZ8xIgwq4EKvfd-uILPQCZCdfFgsJqDJ5Zmc/values/%27pidgin%27:append?valueInputOption=USER_ENTERED (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2406)'))) at POST /audio_data_summary_to_sheets
+2025-06-26 13:42:06,340 - INFO - ::1:57532 - POST /audio_data_summary_to_sheets - Status: [91m500[0m - Time: 71.57s - Reason: HTTPSConnectionPool(host='sheets.googleapis.com', port=443): Max retries exceeded with url: /v4/spreadsheets/1JW8mRPgOZ8xIgwq4EKvfd-uILPQCZCdfFgsJqDJ5Zmc/values/%27pidgin%27:append?valueInputOption=USER_ENTERED (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2406)')))
+2025-06-26 13:44:01,385 - INFO - ::1:57874 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-26 13:44:01,471 - INFO - ::1:57874 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-06-26 13:45:01,778 - ERROR - HTTPException: HTTPSConnectionPool(host='oauth2.googleapis.com', port=443): Max retries exceeded with url: /token (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)'))) at POST /audio_data_summary_to_sheets
+2025-06-26 13:45:01,779 - INFO - ::1:57874 - POST /audio_data_summary_to_sheets - Status: [91m500[0m - Time: 56.04s - Reason: HTTPSConnectionPool(host='oauth2.googleapis.com', port=443): Max retries exceeded with url: /token (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)')))
+2025-06-26 13:55:38,855 - ERROR - HTTPException: APIError: [500]: Internal error encountered. at POST /audio_data_summary_to_sheets
+2025-06-26 13:55:38,858 - INFO - ::1:58408 - POST /audio_data_summary_to_sheets - Status: [91m500[0m - Time: 99.31s - Reason: APIError: [500]: Internal error encountered.
+2025-06-26 14:15:27,116 - INFO - ::1:59461 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-26 14:15:27,313 - INFO - ::1:59461 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-06-26 14:21:37,855 - INFO - ::1:59461 - POST /audio_data_summary_to_sheets - Status: [92m200[0m - Time: 367.54s
