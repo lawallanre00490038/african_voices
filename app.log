@@ -7361,3 +7361,13 @@ requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.github.com', port
 2025-06-27 14:06:06,951 - INFO - ::1:61420 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
 2025-06-27 14:06:07,120 - INFO - ::1:61420 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
 2025-06-27 14:19:15,056 - INFO - ::1:61557 - GET /google_sheet_count_summary - Status: [92m200[0m - Time: 648.97s
+2025-06-27 16:18:14,584 - INFO - ::1:59932 - GET / - Status: [92m200[0m - Time: 0.00s
+2025-06-27 16:18:21,102 - INFO - ::1:59933 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-27 16:18:21,560 - INFO - ::1:59933 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.07s
+2025-06-27 16:23:53,890 - ERROR - HTTPException: cannot access local variable 'BATCH_SIZE' where it is not associated with a value at POST /audio_data_summary_to_multiple_sheets
+2025-06-27 16:23:53,893 - INFO - ::1:59934 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 325.94s - Reason: cannot access local variable 'BATCH_SIZE' where it is not associated with a value
+2025-06-27 16:35:26,653 - ERROR - HTTPException: cannot access local variable 'BATCH_SIZE' where it is not associated with a value at POST /audio_data_summary_to_multiple_sheets
+2025-06-27 16:35:26,659 - INFO - ::1:49285 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 119.58s - Reason: cannot access local variable 'BATCH_SIZE' where it is not associated with a value
+2025-06-27 16:38:16,528 - INFO - ::1:49719 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-06-27 16:38:16,660 - INFO - ::1:49719 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
+2025-06-27 16:44:27,992 - INFO - ::1:49719 - POST /audio_data_summary_to_multiple_sheets - Status: [92m200[0m - Time: 368.11s
