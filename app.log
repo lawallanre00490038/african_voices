@@ -7356,3 +7356,4 @@ requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.github.com', port
 2025-06-27 13:19:34,846 - INFO - ::1:64721 - GET /favicon.ico - Status: [93m404[0m - Time: 0.00s - Reason: Not Found
 2025-06-27 13:19:49,043 - INFO - ::1:64722 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.01s
 2025-06-27 13:19:49,350 - INFO - ::1:64722 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.07s
+2025-06-27 13:29:50,149 - INFO - ::1:64727 - GET /google_sheet_count_summary - Status: [92m200[0m - Time: 588.67s
