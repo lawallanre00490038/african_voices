@@ -37,16 +37,22 @@ Copy
 Edit
 http://localhost:8000/annotators
 
+sadsadsada
+# Install LFS if not already
+git lfs install
+
+# Track large file types
+git lfs track "*.zip"
+git lfs track "*.xlsx"
+
+# Commit the LFS tracking rules
+git add .gitattributes
+git add reports/audio_data_summary.xlsx audio_data_summary.zip
+git commit -m "Track large files using Git LFS"
+
+git lfs update --force
+git push origin main
 
 
-
-
-git clone https://x-access-token:${PAT}@github.com/lawallanre00490038/african_voices_dashboard.git
-cp audio_data_summary.zip african_voices_dashboard/
-cd african_voices_dashboard
-
-
-
-Let me know if you'd like to:
-
-Automate this entire zip → push → LFS workflow in a GitHub Action
+# Push to GitHub again
+git push origin main
