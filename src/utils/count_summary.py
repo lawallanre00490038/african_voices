@@ -5,6 +5,8 @@ import pandas as pd
 import gspread
 from google.oauth2.service_account import Credentials
 from dotenv import load_dotenv
+import base64
+import json 
 
 load_dotenv()
 
@@ -20,7 +22,14 @@ HEADERS = {"Authorization": f"token {TOKEN}"}
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 SHEET_ID = "1JW8mRPgOZ8xIgwq4EKvfd-uILPQCZCdfFgsJqDJ5Zmc"
 SHEET_NAME = "annotated_count_summary"
-SERVICE_ACCOUNT_FILE = os.path.join(os.path.dirname(__file__), "audios_count.json")
+# SERVICE_ACCOUNT_FILE = os.path.join(os.path.dirname(__file__), "audios_count.json")
+
+b64_creds = os.getenv("GOOGLE_CREDS_B64")
+
+if not b64_creds:
+    raise Exception("Missing GOOGLE_CREDS_B64 in environment.")
+
+creds_dict = json.loads(base64.b64decode(b64_creds).decode("utf-8"))
 
 
 
@@ -91,7 +100,7 @@ def get_folder_stats():
 
 
 def write_summary_to_sheet(data):
-    creds = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+    creds = Credentials.from_service_account_file(creds_dict, scopes=SCOPES)
     client = gspread.authorize(creds)
     sheet = client.open_by_key(SHEET_ID).worksheet(SHEET_NAME)
 

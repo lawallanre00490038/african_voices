@@ -20,13 +20,21 @@ from google.oauth2.service_account import Credentials
 from google.oauth2.service_account import Credentials
 from google.auth.transport.requests import Request
 import google.auth.exceptions
+import base64
 
 # Load environment variables
 load_dotenv()
 
 # Google Sheets settings
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
-SERVICE_ACCOUNT_FILE = os.path.join(os.path.dirname(__file__), "audios_count.json")
+# SERVICE_ACCOUNT_FILE = os.path.join(os.path.dirname(__file__), "audios_count.json")
+
+b64_creds = os.getenv("GOOGLE_CREDS_B64")
+
+if not b64_creds:
+    raise Exception("Missing GOOGLE_CREDS_B64 in environment.")
+
+creds_dict = json.loads(base64.b64decode(b64_creds).decode("utf-8"))
 
 # GitHub settings
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
@@ -54,7 +62,7 @@ SHEET_IDS_BY_LANG = {
 def get_credentials_with_retry(retries=3):
     for i in range(retries):
         try:
-            return Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+            return Credentials.from_service_account_file(creds_dict, scopes=SCOPES)
         except (google.auth.exceptions.TransportError, SSLError) as e:
             print(f"Retrying auth ({i+1}/{retries}): {e}")
             time.sleep(2 ** i)
@@ -75,7 +83,7 @@ def write_sheet_to_workbook(sheet_id: str, df: pd.DataFrame, tab_name: str = "Sh
     """Write DataFrame to a specific tab in a workbook."""
     credentials = get_credentials_with_retry()
     gc = gspread.authorize(credentials)
-    credentials = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+    credentials = Credentials.from_service_account_file(creds_dict, scopes=SCOPES)
     gc = gspread.authorize(credentials)
 
     try:
@@ -118,7 +126,7 @@ SHEET_ID="1JW8mRPgOZ8xIgwq4EKvfd-uILPQCZCdfFgsJqDJ5Zmc"
 
 def write_sheet(sheet_name: str, df: pd.DataFrame):
     """Write a DataFrame to Google Sheets in chunks."""
-    credentials = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+    credentials = Credentials.from_service_account_file(creds_dict, scopes=SCOPES)
     gc = gspread.authorize(get_credentials_with_retry())
 
     try:
