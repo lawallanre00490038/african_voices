@@ -208,12 +208,9 @@ def get_latest_hour_summary(read_df: pd.DataFrame, unread_df: pd.DataFrame, wide
 def get_hourly_summary():
     df_long, read_df, unread_df, wide_df = fetch_excel_from_github()
 
-    # Save original sheets
     write_sheet("hourly_summary_read", read_df)
     write_sheet("hourly_summary_unread", unread_df)
 
-
-    # Latest hour summary
     latest_summary = get_latest_hour_summary(read_df, unread_df, wide_df)
 
     return {
@@ -223,3 +220,40 @@ def get_hourly_summary():
         "list_of_inactive_annotators": latest_summary["list_of_inactive_annotators"],
         "records": df_long.to_dict(orient="records"),
     }
+
+
+@hourly.get("/hourly-summary-read")
+def get_hourly_summary_read():
+    _, read_df, _, _ = fetch_excel_from_github()
+
+    # Rename first column to "Annotators"
+    if read_df.columns[0] != "Annotator":
+        read_df.rename(columns={read_df.columns[0]: "Annotator"}, inplace=True)
+
+    # Get latest hour column
+    hour_cols = [col for col in read_df.columns if col != "Annotator"]
+    latest_hour = sorted(hour_cols)[-1]
+
+    # Filter to only "Annotators" and latest hour
+    latest_df = read_df[["Annotator", latest_hour]]
+
+    return (latest_df.to_dict(orient="records"))
+
+
+
+@hourly.get("/hourly-summary-unread")
+def get_hourly_summary_unread():
+    _, _, unread_df, _ = fetch_excel_from_github()
+
+    # Rename first column to "Annotators"
+    if unread_df.columns[0] != "Annotator":
+        unread_df.rename(columns={unread_df.columns[0]: "Annotator"}, inplace=True)
+
+    # Get latest hour column
+    hour_cols = [col for col in unread_df.columns if col != "Annotator"]
+    latest_hour = sorted(hour_cols)[-1]
+
+    # Filter to only "Annotators" and latest hour
+    latest_df = unread_df[["Annotator", latest_hour]]
+
+    return (latest_df.to_dict(orient="records"))
