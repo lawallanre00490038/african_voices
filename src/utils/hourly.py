@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 from google.oauth2.service_account import Credentials
 from google.auth.exceptions import TransportError
 from requests.exceptions import SSLError
+import json
+import base64
 
 load_dotenv()
 
@@ -15,7 +17,15 @@ hourly = APIRouter()
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 EXCEL_URL = "https://raw.githubusercontent.com/lawallanre00490038/dsn-voice/main/reports/current_annotators_report.xlsx"
 SHEET_ID = "1JW8mRPgOZ8xIgwq4EKvfd-uILPQCZCdfFgsJqDJ5Zmc"
-SERVICE_ACCOUNT_FILE = os.path.join(os.path.dirname(__file__), "audios_count.json")
+# SERVICE_ACCOUNT_FILE = os.path.join(os.path.dirname(__file__), "audios_count.json")
+
+b64_creds = os.getenv("GOOGLE_CREDS_B64")
+
+if not b64_creds:
+    raise Exception("Missing GOOGLE_CREDS_B64 in environment.")
+
+creds_dict = json.loads(base64.b64decode(b64_creds).decode("utf-8"))
+
 SHEET_NAME = "hourly_summary"
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
@@ -56,14 +66,31 @@ def fetch_excel_from_github():
 
 
 
+# def get_credentials_with_retry(retries=3):
+#     for i in range(retries):
+#         try:
+#             return Credentials.from_service_account_file(creds_dict, scopes=SCOPES)
+#         except (TransportError, SSLError) as e:
+#             print(f"Retrying Google auth ({i+1}/{retries}) due to: {e}")
+#             time.sleep(2 ** i)
+#     raise HTTPException(status_code=500, detail="❌ Failed to authenticate with Google Sheets.")
+
+
+# SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
+
 def get_credentials_with_retry(retries=3):
-    for i in range(retries):
-        try:
-            return Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
-        except (TransportError, SSLError) as e:
-            print(f"Retrying Google auth ({i+1}/{retries}) due to: {e}")
-            time.sleep(2 ** i)
-    raise HTTPException(status_code=500, detail="❌ Failed to authenticate with Google Sheets.")
+    b64_creds = os.getenv("GOOGLE_CREDS_B64")
+
+    if not b64_creds:
+        raise HTTPException(status_code=500, detail="❌ Missing GOOGLE_CREDS_B64 environment variable")
+
+    try:
+        json_creds = base64.b64decode(b64_creds).decode("utf-8")
+        creds_dict = json.loads(json_creds)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"❌ Failed to decode credentials: {str(e)}")
+
+    return Credentials.from_service_account_info(creds_dict, scopes=SCOPES)
 
 
 def write_sheet(sheet_name: str, df: pd.DataFrame):

@@ -13,3 +13,4 @@ dsn-voice/
 
 .env
 
+src/utils/audios_count.json
