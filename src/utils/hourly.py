@@ -10,6 +10,8 @@ from requests.exceptions import SSLError
 import json
 import base64
 
+import numpy as np
+
 load_dotenv()
 
 hourly = APIRouter()
@@ -30,40 +32,6 @@ creds_dict = json.loads(base64.b64decode(b64_creds).decode("utf-8"))
 SHEET_NAME = "hourly_summary"
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
-
-
-# def fetch_excel_from_github():
-#     headers = {"Authorization": f"token {GITHUB_TOKEN}"}
-#     response = requests.get(EXCEL_URL, headers=headers)
-#     if response.status_code != 200:
-#         raise HTTPException(status_code=500, detail="❌ Failed to fetch Excel from GitHub")
-
-#     try:
-#         # Read both sheets
-#         read_df = pd.read_excel(io.BytesIO(response.content), sheet_name="read")
-#         unread_df = pd.read_excel(io.BytesIO(response.content), sheet_name="unread")
-
-#         # Extract timestamp column name
-#         timestamp = read_df.columns[1]
-        
-#         # Rename columns
-#         read_df.columns = ["annotator", "read_count"]
-#         read_df.insert(1, "timestamp", timestamp)
-
-#         unread_df.columns = ["annotator", "unread_count"]
-#         unread_df.insert(1, "timestamp", timestamp)
-
-#         # Merge on annotator
-#         df = pd.merge(read_df, unread_df, on=["annotator", "timestamp"], how="outer").fillna(0)
-
-#         # Cast to int
-#         df["read_count"] = df["read_count"].astype(int)
-#         df["unread_count"] = df["unread_count"].astype(int)
-
-#         return df
-
-#     except Exception as e:
-#         raise HTTPException(status_code=500, detail=f"❌ Failed to parse Excel: {str(e)}")
 
 
 def fetch_excel_from_github():
@@ -148,6 +116,9 @@ def write_sheet(sheet_name: str, df: pd.DataFrame):
     worksheet.clear()
     worksheet.append_rows([df.columns.tolist()], value_input_option="USER_ENTERED")
 
+    # ✅ Clean all data before pushing
+    df = df.replace({np.nan: ""}).fillna("")  # Remove NaNs and None safely
+
     chunk_size = 500
     for i in range(0, len(df), chunk_size):
         chunk = df.iloc[i:i + chunk_size].values.tolist()
@@ -200,6 +171,7 @@ def get_latest_hour_summary(read_df: pd.DataFrame, unread_df: pd.DataFrame, wide
         "active_annotators": active_annotators,
         "inactive_annotators": inactive_annotators,
         "list_of_inactive_annotators": inactive_annotator_list,
+
     }
 
 
@@ -222,22 +194,23 @@ def get_hourly_summary():
     }
 
 
+
 @hourly.get("/hourly-summary-read")
 def get_hourly_summary_read():
     _, read_df, _, _ = fetch_excel_from_github()
 
-    # Rename first column to "Annotators"
     if read_df.columns[0] != "Annotator":
         read_df.rename(columns={read_df.columns[0]: "Annotator"}, inplace=True)
 
-    # Get latest hour column
-    hour_cols = [col for col in read_df.columns if col != "Annotator"]
-    latest_hour = sorted(hour_cols)[-1]
+    # Replace NaN with None
+    read_df = read_df.replace({np.nan: None})
 
-    # Filter to only "Annotators" and latest hour
-    latest_df = read_df[["Annotator", latest_hour]]
+    # Convert float columns to object (optional but ensures JSON compliance)
+    for col in read_df.columns:
+        if read_df[col].dtype == float:
+            read_df[col] = read_df[col].astype(object)
 
-    return (latest_df.to_dict(orient="records"))
+    return (read_df.to_dict(orient="records"))
 
 
 
@@ -245,15 +218,13 @@ def get_hourly_summary_read():
 def get_hourly_summary_unread():
     _, _, unread_df, _ = fetch_excel_from_github()
 
-    # Rename first column to "Annotators"
     if unread_df.columns[0] != "Annotator":
         unread_df.rename(columns={unread_df.columns[0]: "Annotator"}, inplace=True)
 
-    # Get latest hour column
-    hour_cols = [col for col in unread_df.columns if col != "Annotator"]
-    latest_hour = sorted(hour_cols)[-1]
+    unread_df = unread_df.replace({np.nan: None})
 
-    # Filter to only "Annotators" and latest hour
-    latest_df = unread_df[["Annotator", latest_hour]]
+    for col in unread_df.columns:
+        if unread_df[col].dtype == float:
+            unread_df[col] = unread_df[col].astype(object)
 
-    return (latest_df.to_dict(orient="records"))
+    return (unread_df.to_dict(orient="records"))
