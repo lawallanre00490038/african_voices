@@ -1,0 +1,30 @@
+Forecast for Pidgin:
+
+  Date  Target Hours  Target Sentences  Est. Annotators (600 sent/day)
+Jul 02        247.09            111191                             186
+Jul 03        360.03            162013                             271
+Jul 04        491.79            221304                             369
+Jul 05        642.37            289066                             482
+Jul 06        811.77            365298                             609
+Jul 07       1000.00            450000                             750
+
+Forecast for Yoruba:
+
+  Date  Target Hours  Target Sentences  Est. Annotators (600 sent/day)
+Jul 02        125.63             56532                              95
+Jul 03        181.78             81802                             137
+Jul 04        247.30            111284                             186
+Jul 05        322.17            144977                             242
+Jul 06        406.41            182883                             305
+Jul 07        500.00            225000                             375
+
+Forecast for Igbo:
+
+  Date  Target Hours  Target Sentences  Est. Annotators (600 sent/day)
+Jul 02         93.15             41916                              70
+Jul 03        154.17             69378                             116
+Jul 04        225.37            101418                             170
+Jul 05        306.74            138035                             231
+Jul 06        398.29            179228                             299
+Jul 07        500.00            224999                             375
+(Backend) PS C:\Users\Olanrewaju Lawal\Desktop\Lanre\DSN\African Voices\Backend> 

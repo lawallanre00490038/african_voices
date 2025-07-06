@@ -36,3 +36,17 @@ bash
 Copy
 Edit
 http://localhost:8000/annotators
+
+
+
+
+
+git clone https://x-access-token:${PAT}@github.com/lawallanre00490038/african_voices_dashboard.git
+cp audio_data_summary.zip african_voices_dashboard/
+cd african_voices_dashboard
+
+
+
+Let me know if you'd like to:
+
+Automate this entire zip → push → LFS workflow in a GitHub Action
