@@ -10205,3 +10205,7 @@ gspread.exceptions.APIError: APIError: [400]: Invalid requests[0].addSheet: This
 2025-07-06 14:03:32,798 - INFO - ::1:49917 - GET /stats-json - Status: [92m200[0m - Time: 3.59s
 2025-07-06 14:04:13,797 - INFO - ::1:49938 - GET /stats-summary - Status: [92m200[0m - Time: 6.01s
 2025-07-06 14:05:22,070 - INFO - ::1:49976 - GET /registered-annotators - Status: [92m200[0m - Time: 0.93s
+2025-07-06 15:52:55,772 - INFO - ::1:57165 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-07-06 15:52:56,036 - INFO - ::1:57165 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.05s
+2025-07-06 15:56:00,593 - ERROR - HTTPException: [Errno 2] No such file or directory: 'C:\\Users\\Olanrewaju Lawal\\Desktop\\Lanre\\DSN\\African Voices\\Backend\\src\\utils\\audios_count.json' at POST /audio_data_summary_to_multiple_sheets
+2025-07-06 15:56:00,599 - INFO - ::1:57166 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 159.06s - Reason: [Errno 2] No such file or directory: 'C:\\Users\\Olanrewaju Lawal\\Desktop\\Lanre\\DSN\\African Voices\\Backend\\src\\utils\\audios_count.json'

@@ -21,40 +21,6 @@ SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
 
 
-
-
-# def fetch_excel_from_github():
-#     headers = {"Authorization": f"token {GITHUB_TOKEN}"}
-#     response = requests.get(EXCEL_URL, headers=headers)
-
-#     if response.status_code != 200:
-#         raise HTTPException(status_code=500, detail="❌ Failed to fetch Excel from GitHub")
-
-#     try:
-#         df = pd.read_excel(io.BytesIO(response.content), sheet_name="read")
-#         print("🧪 Columns in fetched Excel:", df.columns.tolist())
-
-#         cols = df.columns.tolist()
-
-#         if len(cols) != 2:
-#             raise HTTPException(status_code=500, detail=f"❌ Unexpected column count. Got: {cols}")
-
-#         annotator_col = cols[0]
-#         timestamp_header = cols[1]
-
-#         df = df.rename(columns={
-#             annotator_col: "annotator",
-#             timestamp_header: "count"
-#         })
-#         df["timestamp"] = timestamp_header
-
-#         return df[["annotator", "timestamp", "count"]]
-
-#     except Exception as e:
-#         raise HTTPException(status_code=500, detail=f"❌ Failed to parse Excel: {str(e)}")
-
-    
-
 def fetch_excel_from_github():
     headers = {"Authorization": f"token {GITHUB_TOKEN}"}
     response = requests.get(EXCEL_URL, headers=headers)
