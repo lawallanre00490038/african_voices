@@ -82,5 +82,5 @@ def process_audio_optimize_snr(input_path):
         return None
 
 # Example usage
-process_audio_optimize_snr("./audio/Cleaned 7.wav")
+process_audio_optimize_snr("./input/test3.wav")
 
