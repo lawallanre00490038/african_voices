@@ -19,7 +19,7 @@ from src.models import AnnotatorStat
 from src.process_data import update_or_create_language_stat, process_all_languages
 from src.utils.trigger_webhook import trigger_github_webhook
 from src.utils.count_summary import get_folder_stats, write_summary_to_sheet
-from src.utils.annotator import get_annotators_json, push_annotators_to_sheet
+from src.utils.annotator import  push_annotators_to_sheet
 
 load_dotenv()
 # Load from .env
@@ -166,9 +166,9 @@ def get_annotator_data():
 #     return push_annotation_update_stats_to_sheet()
 
 
-@github_router.get("/assigned_data-recording_stats-to-json", tags=["Annotator Data"])
-def get_annotator_data_in_json():
-    return get_annotators_json()
+# @github_router.get("/assigned_data-recording_stats-to-json", tags=["Annotator Data"])
+# def get_annotator_data_in_json():
+#     return get_annotators_json()
 
 
 @github_router.get("/annotators", response_model=List[AnnotatorStat], tags=["Annotator Data"])

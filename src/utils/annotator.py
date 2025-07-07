@@ -4,7 +4,6 @@ import requests
 import pandas as pd
 import gspread
 from fastapi import HTTPException
-from google.oauth2.service_account import Credentials
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 from dotenv import load_dotenv
 from src.utils.credentials import get_credentials_with_retry
