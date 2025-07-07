@@ -1,15 +1,13 @@
 import gspread, os
 from google.oauth2.service_account import Credentials
+from src.utils.credentials import get_credentials_with_retry
 
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 SHEET_ID = "1JW8mRPgOZ8xIgwq4EKvfd-uILPQCZCdfFgsJqDJ5Zmc"
 SHEET_NAME = "audios_count"
-SERVICE_ACCOUNT_FILE = os.path.join(os.path.dirname(__file__), "audios_count.json")
 
 def write_to_sheet(data: dict):
-    credentials = Credentials.from_service_account_file(
-        SERVICE_ACCOUNT_FILE, scopes=SCOPES
-    )
+    credentials = get_credentials_with_retry()
     gc = gspread.authorize(credentials)
     sheet = gc.open_by_key(SHEET_ID).worksheet(SHEET_NAME)
 

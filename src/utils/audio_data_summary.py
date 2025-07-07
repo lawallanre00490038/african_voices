@@ -7,9 +7,7 @@ from dotenv import load_dotenv
 from google.oauth2.service_account import Credentials
 import time
 from requests.exceptions import SSLError
-
-
-
+import numpy as np
 import os, io, requests, json
 import pandas as pd
 from typing import List
@@ -19,8 +17,14 @@ from dotenv import load_dotenv
 from google.oauth2.service_account import Credentials
 from google.oauth2.service_account import Credentials
 from google.auth.transport.requests import Request
-import google.auth.exceptions
-import base64
+from src.utils.credentials import get_credentials_with_retry
+import time
+import numpy as np
+import gspread
+from google.auth.exceptions import TransportError
+from gspread.exceptions import APIError
+from tenacity import retry, wait_exponential, stop_after_attempt, retry_if_exception_type
+
 
 # Load environment variables
 load_dotenv()
@@ -29,12 +33,6 @@ load_dotenv()
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 # SERVICE_ACCOUNT_FILE = os.path.join(os.path.dirname(__file__), "audios_count.json")
 
-b64_creds = os.getenv("GOOGLE_CREDS_B64")
-
-if not b64_creds:
-    raise Exception("Missing GOOGLE_CREDS_B64 in environment.")
-
-creds_dict = json.loads(base64.b64decode(b64_creds).decode("utf-8"))
 
 # GitHub settings
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
@@ -43,14 +41,8 @@ REPO_NAME = "dsn-voice"
 RAW_FILE_URL = f"https://raw.githubusercontent.com/{REPO_OWNER}/{REPO_NAME}/main/reports/audio_data_summary.xlsx"
 HEADERS = {"Authorization": f"token {GITHUB_TOKEN}"}
 
-# Language → Workbook ID mapping
-# SHEET_IDS_BY_LANG = {
-#     "pidgin": "1-AgbYEevXN3zt27QdYSpcBP-xr1CvZgzBQrOj4AIug8",
-#     "yoruba": "13Yl8oO8h8Bp-qd4BGpfaeY5sXLwcjEEFrZUUQ3Ngc2o",
-#     "hausa": "13QBRTAJyVGyjdoTjAPa8QoKYdTnGRKeIndVZLoO34xM",
-#     "igbo": "1v65uZIAVVSWDdhR4RFyeFVAiWASFVgehG8bJ5bPXLm0"
-# }
 
+SHEET_ID="1JW8mRPgOZ8xIgwq4EKvfd-uILPQCZCdfFgsJqDJ5Zmc"
 
 SHEET_IDS_BY_LANG = {
     "pidgin": "1CIgBxcKNpwphlxhmP7oAmYR2aMyEeRbntZoH_bJJnuw",
@@ -59,14 +51,6 @@ SHEET_IDS_BY_LANG = {
     "igbo": "1kQOBCH4lSeLtIsAgkZPX6dzc5h-m9ZOgzuA01turGSI"
 }
 
-def get_credentials_with_retry(retries=3):
-    for i in range(retries):
-        try:
-            return Credentials.from_service_account_file(creds_dict, scopes=SCOPES)
-        except (google.auth.exceptions.TransportError, SSLError) as e:
-            print(f"Retrying auth ({i+1}/{retries}): {e}")
-            time.sleep(2 ** i)
-    raise Exception("Failed to authenticate after retries.")
 
 
 def fetch_excel_from_github() -> pd.ExcelFile:
@@ -78,12 +62,17 @@ def fetch_excel_from_github() -> pd.ExcelFile:
 
 
 
+@retry(
+    retry=retry_if_exception_type(APIError),
+    wait=wait_exponential(multiplier=2, min=4, max=20),
+    stop=stop_after_attempt(5),
+)
+def append_chunk(worksheet, chunk):
+    worksheet.append_rows(chunk, value_input_option="USER_ENTERED")
 
 def write_sheet_to_workbook(sheet_id: str, df: pd.DataFrame, tab_name: str = "Sheet1"):
-    """Write DataFrame to a specific tab in a workbook."""
+    """Write DataFrame to a specific tab in a workbook with retry + chunking."""
     credentials = get_credentials_with_retry()
-    gc = gspread.authorize(credentials)
-    credentials = Credentials.from_service_account_file(creds_dict, scopes=SCOPES)
     gc = gspread.authorize(credentials)
 
     try:
@@ -93,13 +82,31 @@ def write_sheet_to_workbook(sheet_id: str, df: pd.DataFrame, tab_name: str = "Sh
 
     worksheet.clear()
 
-    if not df.empty:
-        worksheet.append_rows(
-            [df.columns.tolist()] + df.values.tolist(),
-            value_input_option="USER_ENTERED"
-        )
-    else:
+    if df.empty:
         print(f"⚠️ DataFrame for {sheet_id} is empty, skipping...")
+        return
+
+    df = df.replace({np.nan: ""})  # Avoid NaNs that break JSON
+    header = [df.columns.tolist()]
+    data_rows = df.values.tolist()
+
+    print("📤 Appending header...")
+    append_chunk(worksheet, header)
+
+    chunk_size = 5000
+    for i in range(0, len(data_rows), chunk_size):
+        chunk = data_rows[i:i + chunk_size]
+        try:
+            print(f"📤 Appending rows {i} to {i + len(chunk)}...")
+            append_chunk(worksheet, chunk)
+            time.sleep(1.5)  # Optional: pause to avoid quota hit
+        except APIError as e:
+            print(f"❌ Failed to append rows {i}-{i+len(chunk)}: {e}")
+            raise
+
+    print("✅ Finished writing to sheet.")
+
+
 
 
 def push_all_audio_summary_sheets_multiple():
@@ -109,6 +116,7 @@ def push_all_audio_summary_sheets_multiple():
 
     for lang, df in all_sheets.items():
         sheet_id = SHEET_IDS_BY_LANG.get(lang.lower())
+        print("The sheet id is:", sheet_id, lang, df.columns)
         if not sheet_id:
             print(f"⚠️ No Sheet ID found for language: {lang}, skipping...")
             continue
@@ -122,44 +130,21 @@ def push_all_audio_summary_sheets_multiple():
 
 
 
-SHEET_ID="1JW8mRPgOZ8xIgwq4EKvfd-uILPQCZCdfFgsJqDJ5Zmc"
-
-def write_sheet(sheet_name: str, df: pd.DataFrame):
-    """Write a DataFrame to Google Sheets in chunks."""
-    credentials = Credentials.from_service_account_file(creds_dict, scopes=SCOPES)
-    gc = gspread.authorize(get_credentials_with_retry())
-
-    try:
-        worksheet = gc.open_by_key(SHEET_ID).worksheet(sheet_name)
-    except gspread.exceptions.WorksheetNotFound:
-        worksheet = gc.open_by_key(SHEET_ID).add_worksheet(title=sheet_name, rows="1000", cols="20")
-
-    worksheet.clear()
-
-    # Add headers
-    worksheet.append_rows([df.columns.tolist()], value_input_option="USER_ENTERED")
-
-    # Chunked writing of data rows
-    data = df.values.tolist()
-    chunk_size = 500
-    for i in range(0, len(data), chunk_size):
-        chunk = data[i:i + chunk_size]
-        worksheet.append_rows(chunk, value_input_option="USER_ENTERED")
-        time.sleep(1)  # Prevent rate limit issues
-
-
 def push_all_audio_summary_sheets():
     excel_data = fetch_excel_from_github()
     all_sheets = pd.read_excel(excel_data, sheet_name=None)  # Dict: {sheet_name: df}
 
     for lang, df in all_sheets.items():
-        sheet_id = SHEET_IDS_BY_LANG.get(lang.lower())
-        if not sheet_id:
+        if not SHEET_ID:
             print(f"⚠️ No Sheet ID found for language: {lang}, skipping...")
             continue
 
-        print(f"📝 Writing to workbook: {lang} ({len(df)} rows)")
-        write_sheet(sheet_id, lang, df)
+         # Mine
+        print(f"📝 Writing {len(df)} rows to tab: {lang}")
+        write_sheet_to_workbook(SHEET_ID, df, lang.lower())
 
+
+        
     print("✅ All sheets written successfully.")
+    return("✅ All sheets written successfully.")
 

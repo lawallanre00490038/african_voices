@@ -1,16 +1,18 @@
-import os
-import io
-import requests
-import pandas as pd
-import gspread
-from google.oauth2.service_account import Credentials
-from dotenv import load_dotenv
 import base64
 import json 
+import os, json, io, base64, time
+import requests
+import pandas as pd
+from dotenv import load_dotenv
+import gspread
+from src.utils.credentials import get_credentials_with_retry
+from gspread.exceptions import APIError, WorksheetNotFound
+from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 
+# Load environment variables
 load_dotenv()
 
-# GitHub setup
+# GitHub settings
 TOKEN = os.getenv("GITHUB_TOKEN")
 REPO_OWNER = "lawallanre00490038"
 REPO_NAME = "dsn-voice"
@@ -22,25 +24,35 @@ HEADERS = {"Authorization": f"token {TOKEN}"}
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 SHEET_ID = "1JW8mRPgOZ8xIgwq4EKvfd-uILPQCZCdfFgsJqDJ5Zmc"
 SHEET_NAME = "annotated_count_summary"
-# SERVICE_ACCOUNT_FILE = os.path.join(os.path.dirname(__file__), "audios_count.json")
-
-b64_creds = os.getenv("GOOGLE_CREDS_B64")
-
-if not b64_creds:
-    raise Exception("Missing GOOGLE_CREDS_B64 in environment.")
-
-creds_dict = json.loads(base64.b64decode(b64_creds).decode("utf-8"))
 
 
 
+# Retry wrappers
+@retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1.5), retry=retry_if_exception_type(Exception))
+def safe_get(url):
+    res = requests.get(url, headers=HEADERS)
+    res.raise_for_status()
+    return res
+
+
+@retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=2), retry=retry_if_exception_type(APIError))
+def safe_update(worksheet, headers, rows):
+    worksheet.batch_clear(["A1:E1000"])
+    worksheet.update("A1", [headers] + rows, value_input_option="USER_ENTERED")
+
+
+
+@retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=2), retry=retry_if_exception_type(Exception))
+def safe_authorize():
+    creds = get_credentials_with_retry()
+    return gspread.authorize(creds)
+
+# 📥 Parse individual annotator TSV
 def parse_tsv(folder_name):
-    """Parse assigned_data.tsv for an annotator folder."""
     url = f"{RAW_BASE}/{folder_name}/assigned_data.tsv"
     print(f"📥 Fetching TSV: {url}")
     try:
-        response = requests.get(url, headers=HEADERS)
-        response.raise_for_status()  # will raise an error for 404, etc.
-
+        response = safe_get(url)
         df = pd.read_csv(io.StringIO(response.text), sep="\t")
 
         total = len(df)
@@ -48,14 +60,14 @@ def parse_tsv(folder_name):
         recorded = df['recorded'].sum() if 'recorded' in df else 0
         invalid = df['invalid'].sum() if 'invalid' in df else 0
 
-
         print(f"✅ Parsed {folder_name} with {total} rows")
         return {
             "total_rows": int(total),
             "presented": int(presented),
             "recorded": int(recorded),
-            "invalid": int(invalid),
+            "invalid": int(invalid)
         }
+
     except Exception as e:
         print(f"❌ Failed to parse {folder_name}: {e}")
         return {
@@ -65,60 +77,77 @@ def parse_tsv(folder_name):
             "invalid": 0,
             "error": str(e)
         }
-        
 
 
-# 📊 Collect stats for each annotator
+# 📊 Collect stats from all annotator folders
 def get_folder_stats():
-    result = []
-    res = requests.get(BASE_API, headers=HEADERS)
-    if res.status_code != 200:
-        print("❌ Failed to fetch annotator folders")
+    try:
+        res = safe_get(BASE_API)
+        folders = res.json()
+    except Exception as e:
+        print("❌ Failed to fetch annotator folders:", e)
         return []
 
-    folders = res.json()
+    result = []
     for folder in folders:
-        if folder["type"] == "dir":
+        if folder.get("type") == "dir":
             name = folder["name"]
             print(f"📁 Processing {name}...")
-            tsv_stats = parse_tsv(name)
+            stats = parse_tsv(name)
 
             result.append({
                 "annotator": name,
-                "total": tsv_stats["total_rows"],
-                "presented": tsv_stats["presented"],
-                "recorded": tsv_stats["recorded"],
-                "invalid": tsv_stats["invalid"]
+                "total": stats["total_rows"],
+                "presented": stats["presented"],
+                "recorded": stats["recorded"],
+                "invalid": stats["invalid"]
             })
 
     return result
 
 
-
-
-
-
-
+# ✅ Write stats to Google Sheets
 def write_summary_to_sheet(data):
-    creds = Credentials.from_service_account_file(creds_dict, scopes=SCOPES)
-    client = gspread.authorize(creds)
-    sheet = client.open_by_key(SHEET_ID).worksheet(SHEET_NAME)
+    try:
+        client = safe_authorize()
+        sheet = client.open_by_key(SHEET_ID).worksheet(SHEET_NAME)
+    except WorksheetNotFound:
+        sheet = client.open_by_key(SHEET_ID).add_worksheet(title=SHEET_NAME, rows="1000", cols="5")
+    except Exception as e:
+        print(f"❌ Could not access sheet: {e}")
+        return
 
     headers = ["Annotator", "Total Sentences", "Presented", "Recorded", "Invalid"]
-
     rows = []
+
     for row in data:
         annotator = row.get("annotator", "")
-        total = row.get("total", 0) 
+        total = row.get("total", 0)
         presented = row.get("presented", 0)
         recorded = row.get("recorded", 0)
         invalid = row.get("invalid", 0)
 
-        print("This is great: ", annotator, total, presented, recorded, invalid)
+        print("✅ Row:", annotator, total, presented, recorded, invalid)
         rows.append([annotator, total, presented, recorded, invalid])
 
-    sheet.batch_clear(["A1:E1000"])
-    sheet.update("A1", [headers] + rows, value_input_option="USER_ENTERED")
+    try:
+        safe_update(sheet, headers, rows)
+        print("✅ Sheet updated successfully.")
+    except Exception as e:
+        print(f"❌ Failed to update sheet: {e}")
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

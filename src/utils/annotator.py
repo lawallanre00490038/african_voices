@@ -5,6 +5,7 @@ import gspread
 import io
 from google.oauth2.service_account import Credentials
 from fastapi import APIRouter, HTTPException
+from src.utils.credentials import get_credentials_with_retry
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -17,7 +18,7 @@ RAW_BASE = f"https://raw.githubusercontent.com/{REPO_OWNER}/{REPO_NAME}/main/ann
 
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 SHEET_ID = "1JW8mRPgOZ8xIgwq4EKvfd-uILPQCZCdfFgsJqDJ5Zmc"
-SERVICE_ACCOUNT_FILE = os.path.join(os.path.dirname(__file__), "audios_count.json")
+
 
 
 def get_annotators_json():
@@ -83,7 +84,7 @@ def fetch_annotator_data():
 
 
 def write_to_google_sheet(sheet_name: str, df: pd.DataFrame):
-    creds = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+    creds = get_credentials_with_retry()
     client = gspread.authorize(creds)
 
     try:

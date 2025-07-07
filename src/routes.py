@@ -2,7 +2,6 @@ from fastapi import Request, Header, HTTPException, APIRouter, Depends
 from dotenv import load_dotenv
 import subprocess
 import hmac
-from src.schema import GitHubWebhookPayload
 from typing import List
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
@@ -15,13 +14,10 @@ import io
 from datetime import datetime
 import pandas as pd
 from src.utils.audio_data_summary import  push_all_audio_summary_sheets, push_all_audio_summary_sheets_multiple
-# write_lang_audio_data_to_google_sheet,
 from src.db import get_session
 from src.models import AnnotatorStat
 from src.process_data import update_or_create_language_stat, process_all_languages
 from src.utils.trigger_webhook import trigger_github_webhook
-from src.utils.count_audio import count_audio_files_deep
-from src.utils.sheet_writer import  write_to_sheet
 from src.utils.count_summary import get_folder_stats, write_summary_to_sheet
 from src.utils.annotator import get_annotators_json, push_annotators_to_sheet
 

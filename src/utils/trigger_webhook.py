@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 URL = os.environ.get("WEBSITE_URL")
-GITHUB_SECRET = os.getenv("GITHUB_SECRET")
+GITHUB_SECRET = os.getenv("GITHUB_TOKEN")
 
 print("🌐 URL ENV value loaded:", URL)
 
