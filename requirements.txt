@@ -18,3 +18,4 @@ openpyxl
 certifi
 urllib3 
 requests 
+tenacity
