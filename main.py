@@ -80,27 +80,27 @@ app.include_router(
     tags=["Hourly Data"],
 )
 
-if __name__ == "__main__":
-    uvicorn.run(
-        app="main:app",
-        host="localhost",
-        port=8005,
-        proxy_headers=True
-    )
-
-
-
 # if __name__ == "__main__":
-#     ENV = os.getenv("ENV", "development")
-#     PORT = int(os.getenv("PORT", 10000))
-#     HOST = "0.0.0.0" if ENV == "production" else "localhost"
-
 #     uvicorn.run(
 #         app="main:app",
-#         host="0.0.0.0",
-#         port=10000,
-#         reload=True if ENV == "development" else False,
+#         host="localhost",
+#         port=8005,
 #         proxy_headers=True
 #     )
+
+
+
+if __name__ == "__main__":
+    ENV = os.getenv("ENV", "development")
+    PORT = int(os.getenv("PORT", 10000))
+    HOST = "0.0.0.0" if ENV == "production" else "localhost"
+
+    uvicorn.run(
+        app="main:app",
+        host="0.0.0.0",
+        port=10000,
+        reload=True if ENV == "development" else False,
+        proxy_headers=True
+    )
 
 
