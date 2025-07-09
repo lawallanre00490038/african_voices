@@ -124,6 +124,8 @@ def push_all_audio_summary_sheets_multiple():
         print(f"📝 Writing to workbook: {lang} ({len(df)} rows)")
         write_sheet_to_workbook(sheet_id, df, "main")
 
+        push_all_audio_summary_sheets()
+
     print("✅ All sheets written successfully.")
 
 
@@ -132,7 +134,7 @@ def push_all_audio_summary_sheets_multiple():
 
 def push_all_audio_summary_sheets():
     excel_data = fetch_excel_from_github()
-    all_sheets = pd.read_excel(excel_data, sheet_name=None)  # Dict: {sheet_name: df}
+    all_sheets = pd.read_excel(excel_data, sheet_name=None)
 
     for lang, df in all_sheets.items():
         if not SHEET_ID:

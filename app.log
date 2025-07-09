@@ -14763,3 +14763,35 @@ Traceback (most recent call last):
     raise APIError(response)
 gspread.exceptions.APIError: APIError: [400]: This action would increase the number of cells in the workbook above the limit of 10000000 cells.
 
+2025-07-07 16:26:22,007 - INFO - ::1:54697 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.02s
+2025-07-07 16:26:22,269 - INFO - ::1:54697 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.13s
+2025-07-07 16:26:57,653 - INFO - ::1:54700 - GET /hourly-summary - Status: [92m200[0m - Time: 22.44s
+2025-07-08 10:02:24,788 - INFO - ::1:57848 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-07-08 10:02:26,107 - INFO - ::1:57848 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.14s
+2025-07-08 17:11:30,963 - INFO - ::1:61942 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-07-08 17:11:31,255 - INFO - ::1:61942 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.04s
+2025-07-08 17:12:16,924 - INFO - ::1:61943 - GET /hourly-summary - Status: [92m200[0m - Time: 38.58s
+2025-07-08 17:23:53,767 - INFO - ::1:62675 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-07-08 17:26:32,200 - INFO - ::1:62865 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-07-08 17:28:09,468 - INFO - ::1:62911 - GET /hourly-summary - Status: [92m200[0m - Time: 54.67s
+2025-07-08 17:30:15,133 - INFO - ::1:63112 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-07-08 17:36:21,533 - INFO - ::1:63294 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-07-08 17:39:17,003 - INFO - ::1:63455 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-07-08 17:39:17,226 - INFO - ::1:63455 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-07-09 11:02:38,385 - INFO - ::1:55000 - GET / - Status: [92m200[0m - Time: 0.00s
+2025-07-09 11:02:38,905 - INFO - ::1:55000 - GET /favicon.ico - Status: [93m404[0m - Time: 0.00s - Reason: Not Found
+2025-07-09 11:02:41,927 - INFO - ::1:55007 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-07-09 11:02:42,442 - INFO - ::1:55007 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.03s
+2025-07-09 11:09:38,095 - ERROR - HTTPException: HTTPSConnectionPool(host='sheets.googleapis.com', port=443): Max retries exceeded with url: /v4/spreadsheets/1CIgBxcKNpwphlxhmP7oAmYR2aMyEeRbntZoH_bJJnuw/values/%27main%27:append?valueInputOption=USER_ENTERED (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2406)'))) at POST /audio_data_summary_to_multiple_sheets
+2025-07-09 11:09:38,120 - INFO - ::1:55017 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 404.70s - Reason: HTTPSConnectionPool(host='sheets.googleapis.com', port=443): Max retries exceeded with url: /v4/spreadsheets/1CIgBxcKNpwphlxhmP7oAmYR2aMyEeRbntZoH_bJJnuw/values/%27main%27:append?valueInputOption=USER_ENTERED (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2406)')))
+2025-07-09 11:23:11,757 - INFO - ::1:55688 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-07-09 11:23:11,921 - INFO - ::1:55690 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
+2025-07-09 11:41:50,176 - INFO - ::1:55690 - POST /audio_data_summary_to_multiple_sheets - Status: [92m200[0m - Time: 1114.63s
+2025-07-09 12:00:30,965 - ERROR - HTTPException: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')) at POST /audio_data_summary_to_sheets
+2025-07-09 12:00:31,030 - INFO - ::1:56288 - POST /audio_data_summary_to_sheets - Status: [91m500[0m - Time: 1106.29s - Reason: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2025-07-09 12:05:28,639 - INFO - ::1:56822 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-07-09 12:05:28,813 - INFO - ::1:56822 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.03s
+2025-07-09 12:40:49,818 - INFO - ::1:56822 - POST /audio_data_summary_to_sheets - Status: [92m200[0m - Time: 2117.78s
+2025-07-09 13:36:49,880 - INFO - ::1:59315 - GET /google_sheet_count_summary - Status: [92m200[0m - Time: 853.04s
+2025-07-09 13:59:12,022 - INFO - ::1:61418 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-07-09 13:59:12,104 - INFO - ::1:61418 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
