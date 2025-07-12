@@ -124,7 +124,7 @@ def push_all_audio_summary_sheets_multiple():
         print(f"📝 Writing to workbook: {lang} ({len(df)} rows)")
         write_sheet_to_workbook(sheet_id, df, "main")
 
-        push_all_audio_summary_sheets()
+    push_all_audio_summary_sheets()
 
     print("✅ All sheets written successfully.")
 

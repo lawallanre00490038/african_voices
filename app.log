@@ -14795,3 +14795,21 @@ gspread.exceptions.APIError: APIError: [400]: This action would increase the num
 2025-07-09 13:36:49,880 - INFO - ::1:59315 - GET /google_sheet_count_summary - Status: [92m200[0m - Time: 853.04s
 2025-07-09 13:59:12,022 - INFO - ::1:61418 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
 2025-07-09 13:59:12,104 - INFO - ::1:61418 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-07-10 05:39:27,072 - INFO - ::1:50879 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-07-10 05:39:27,313 - INFO - ::1:50879 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
+2025-07-10 10:27:32,707 - INFO - ::1:64139 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.02s
+2025-07-10 10:27:33,015 - INFO - ::1:64139 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.12s
+2025-07-10 11:00:12,707 - ERROR - HTTPException: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)) at POST /audio_data_summary_to_multiple_sheets
+2025-07-10 11:00:12,710 - INFO - ::1:64140 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 1947.73s - Reason: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2025-07-10 11:07:07,546 - ERROR - HTTPException: [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:2559) at POST /audio_data_summary_to_multiple_sheets
+2025-07-10 11:07:07,549 - INFO - ::1:58441 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 1.79s - Reason: [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:2559)
+2025-07-10 11:09:17,234 - ERROR - HTTPException: [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:2559) at POST /audio_data_summary_to_multiple_sheets
+2025-07-10 11:09:17,235 - INFO - ::1:58534 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 2.79s - Reason: [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:2559)
+2025-07-10 11:11:22,463 - INFO - ::1:58649 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-07-10 11:11:22,624 - INFO - ::1:58649 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-07-10 11:11:27,029 - ERROR - HTTPException: [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:2559) at POST /audio_data_summary_to_multiple_sheets
+2025-07-10 11:11:27,031 - INFO - ::1:58649 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 1.49s - Reason: [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:2559)
+2025-07-10 11:12:02,127 - INFO - ::1:58650 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-07-10 11:12:02,239 - INFO - ::1:58650 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
+2025-07-10 11:12:16,503 - ERROR - HTTPException: [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:2559) at POST /audio_data_summary_to_multiple_sheets
+2025-07-10 11:12:16,505 - INFO - ::1:58738 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 2.39s - Reason: [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:2559)
