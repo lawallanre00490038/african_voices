@@ -14839,3 +14839,6 @@ gspread.exceptions.APIError: APIError: [400]: This action would increase the num
 2025-07-12 10:09:45,505 - INFO - ::1:62378 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
 2025-07-12 10:09:45,668 - INFO - ::1:62378 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
 2025-07-12 10:09:54,706 - INFO - ::1:62378 - GET /api/v1/stats-to-sheet - Status: [92m200[0m - Time: 5.19s
+2025-07-12 10:11:06,858 - INFO - ::1:62404 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-07-12 10:11:07,122 - INFO - ::1:62404 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.05s
+2025-07-12 10:11:21,235 - INFO - ::1:62404 - GET /api/v1/stats-to-sheet - Status: [92m200[0m - Time: 11.04s
