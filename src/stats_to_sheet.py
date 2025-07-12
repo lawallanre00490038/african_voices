@@ -28,47 +28,55 @@ sheet = gc.open_by_key(SPREADSHEET_ID)
 @stats_router.get("/stats-to-sheet", tags=["Completed Task Google Sheets"])
 def push_language_stats_to_sheet():
     """
-    Fetch latest stats.csv from GitHub and write to Google Sheet tab named after the language.
+    Push latest stats.csv from GitHub to Google Sheet tabs (one per language).
+    Overwrites each tab and adds 'date' column.
     """
+    result_summary = []
 
     for language in ["pidgin", "yoruba", "igbo", "hausa"]:
-
-        # Step 1: List folders inside reports/{language}
-        sub_url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/contents/reports/{language}"
         try:
-            res = requests.get(sub_url, headers=HEADERS)
-            res.raise_for_status()
-            folders = [f["name"] for f in res.json() if f["type"] == "dir"]
+            # 1. List folders in reports/{language}
+            folder_url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/contents/reports/{language}"
+            folder_res = requests.get(folder_url, headers=HEADERS)
+            folder_res.raise_for_status()
+
+            folders = [f["name"] for f in folder_res.json() if f["type"] == "dir"]
             if not folders:
-                raise HTTPException(status_code=404, detail=f"No date folders found for language '{language}'")
+                raise Exception(f"No folders found for {language}")
+
             latest_date = sorted(folders, reverse=True)[0]
-        except Exception as e:
-            raise HTTPException(status_code=404, detail=f"Could not fetch folders for language '{language}': {str(e)}")
 
-        # Step 2: Use latest folder to fetch stats.csv
-        csv_url = f"{RAW_BASE}/{language}/{latest_date}/stats.csv"
-        try:
-            res = requests.get(csv_url, headers=HEADERS)
-            res.raise_for_status()
-            df = pd.read_csv(io.StringIO(res.text))
+            # 2. Fetch the latest stats.csv
+            csv_url = f"{RAW_BASE}/{language}/{latest_date}/stats.csv"
+            csv_res = requests.get(csv_url, headers=HEADERS)
+            csv_res.raise_for_status()
+
+            df = pd.read_csv(io.StringIO(csv_res.text))
             df["language"] = language
-        except Exception as e:
-            raise HTTPException(
-                status_code=404,
-                detail=f"Failed to fetch data for language '{language}' on date '{latest_date}': {str(e)}"
-            )
+            # df["date"] = pd.to_datetime(latest_date, format="%Y%m%d").dt.strftime("%Y-%m-%d")
+            df["date"] = pd.to_datetime(latest_date, format="%Y%m%d").strftime("%Y-%m-%d")
 
-        # Step 3: Push to Google Sheet (create worksheet if missing)
-        try:
+            # 3. Push to Google Sheet
             worksheet_titles = [ws.title for ws in sheet.worksheets()]
             if language not in worksheet_titles:
                 sheet.add_worksheet(title=language, rows="1000", cols="20")
 
             ws = sheet.worksheet(language)
             ws.clear()
-
-            # Set header and values
             ws.update([df.columns.values.tolist()] + df.values.tolist())
-            return {"status": "success", "message": f"Data pushed to Google Sheet tab '{language}'"}
+
+            result_summary.append({
+                "language": language,
+                "status": "success",
+                "message": f"{len(df)} rows pushed to '{language}' tab",
+                "date": latest_date
+            })
+
         except Exception as e:
-            raise HTTPException(status_code=500, detail=f"Failed to write to Google Sheet: {str(e)}")
+            result_summary.append({
+                "language": language,
+                "status": "error",
+                "message": str(e)
+            })
+
+    return result_summary

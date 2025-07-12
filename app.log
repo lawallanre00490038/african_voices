@@ -14829,3 +14829,13 @@ gspread.exceptions.APIError: APIError: [400]: This action would increase the num
 2025-07-12 09:42:33,544 - INFO - ::1:61838 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
 2025-07-12 09:42:41,753 - INFO - ::1:61839 - GET /hourly-summary-read - Status: [92m200[0m - Time: 2.17s
 2025-07-12 09:44:51,661 - INFO - ::1:61858 - GET /hourly-summary - Status: [92m200[0m - Time: 15.29s
+2025-07-12 09:53:22,826 - INFO - ::1:61998 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-07-12 09:53:23,037 - INFO - ::1:61998 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-07-12 09:53:35,293 - INFO - ::1:61999 - GET /api/v1/stats-to-sheet - Status: [92m200[0m - Time: 4.41s
+2025-07-12 10:07:14,256 - INFO - ::1:62323 - GET / - Status: [92m200[0m - Time: 0.00s
+2025-07-12 10:07:20,236 - INFO - ::1:62324 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-07-12 10:07:20,640 - INFO - ::1:62324 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.04s
+2025-07-12 10:07:40,143 - INFO - ::1:62329 - GET /api/v1/stats-to-sheet - Status: [92m200[0m - Time: 12.79s
+2025-07-12 10:09:45,505 - INFO - ::1:62378 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-07-12 10:09:45,668 - INFO - ::1:62378 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-07-12 10:09:54,706 - INFO - ::1:62378 - GET /api/v1/stats-to-sheet - Status: [92m200[0m - Time: 5.19s
