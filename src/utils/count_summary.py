@@ -22,7 +22,12 @@ HEADERS = {"Authorization": f"token {TOKEN}"}
 
 # Google Sheets setup
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
-SHEET_ID = "1JW8mRPgOZ8xIgwq4EKvfd-uILPQCZCdfFgsJqDJ5Zmc"
+
+SHEET_IDS = [
+    "1JW8mRPgOZ8xIgwq4EKvfd-uILPQCZCdfFgsJqDJ5Zmc",
+    "1_GoSkWDpW-cfosDDSRTCsJYZyz1rR-wCSl4O3sif69s",
+]
+
 SHEET_NAME = "annotated_count_summary"
 
 
@@ -108,33 +113,34 @@ def get_folder_stats():
 
 # ✅ Write stats to Google Sheets
 def write_summary_to_sheet(data):
-    try:
-        client = safe_authorize()
-        sheet = client.open_by_key(SHEET_ID).worksheet(SHEET_NAME)
-    except WorksheetNotFound:
-        sheet = client.open_by_key(SHEET_ID).add_worksheet(title=SHEET_NAME, rows="1000", cols="5")
-    except Exception as e:
-        print(f"❌ Could not access sheet: {e}")
-        return
+    for SHEET_ID in SHEET_IDS:
+        try:
+            client = safe_authorize()
+            sheet = client.open_by_key(SHEET_ID).worksheet(SHEET_NAME)
+        except WorksheetNotFound:
+            sheet = client.open_by_key(SHEET_ID).add_worksheet(title=SHEET_NAME, rows="1000", cols="5")
+        except Exception as e:
+            print(f"❌ Could not access sheet: {e}")
+            return
 
-    headers = ["Annotator", "Total Sentences", "Presented", "Recorded", "Invalid"]
-    rows = []
+        headers = ["Annotator", "Total Sentences", "Presented", "Recorded", "Invalid"]
+        rows = []
 
-    for row in data:
-        annotator = row.get("annotator", "")
-        total = row.get("total", 0)
-        presented = row.get("presented", 0)
-        recorded = row.get("recorded", 0)
-        invalid = row.get("invalid", 0)
+        for row in data:
+            annotator = row.get("annotator", "")
+            total = row.get("total", 0)
+            presented = row.get("presented", 0)
+            recorded = row.get("recorded", 0)
+            invalid = row.get("invalid", 0)
 
-        print("✅ Row:", annotator, total, presented, recorded, invalid)
-        rows.append([annotator, total, presented, recorded, invalid])
+            print("✅ Row:", annotator, total, presented, recorded, invalid)
+            rows.append([annotator, total, presented, recorded, invalid])
 
-    try:
-        safe_update(sheet, headers, rows)
-        print("✅ Sheet updated successfully.")
-    except Exception as e:
-        print(f"❌ Failed to update sheet: {e}")
+        try:
+            safe_update(sheet, headers, rows)
+            print("✅ Sheet updated successfully.")
+        except Exception as e:
+            print(f"❌ Failed to update sheet: {e}")
 
 
 
