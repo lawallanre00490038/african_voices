@@ -16,7 +16,12 @@ hourly = APIRouter()
 # CONFIG
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 EXCEL_URL = "https://raw.githubusercontent.com/lawallanre00490038/dsn-voice/main/reports/current_annotators_report.xlsx"
-SHEET_ID = "1JW8mRPgOZ8xIgwq4EKvfd-uILPQCZCdfFgsJqDJ5Zmc"
+SHEET_IDS = [
+    "1JW8mRPgOZ8xIgwq4EKvfd-uILPQCZCdfFgsJqDJ5Zmc",
+    "1_GoSkWDpW-cfosDDSRTCsJYZyz1rR-wCSl4O3sif69s",
+]
+
+
 # SERVICE_ACCOUNT_FILE = os.path.join(os.path.dirname(__file__), "audios_count.json")
 
 
@@ -72,22 +77,23 @@ def write_sheet(sheet_name: str, df: pd.DataFrame):
     creds = get_credentials_with_retry()
     gc = gspread.authorize(creds)
 
-    try:
-        worksheet = gc.open_by_key(SHEET_ID).worksheet(sheet_name)
-    except gspread.exceptions.WorksheetNotFound:
-        worksheet = gc.open_by_key(SHEET_ID).add_worksheet(title=sheet_name, rows="1000", cols="20")
+    for SHEET_ID in SHEET_IDS:
+        try:
+            worksheet = gc.open_by_key(SHEET_ID).worksheet(sheet_name)
+        except gspread.exceptions.WorksheetNotFound:
+            worksheet = gc.open_by_key(SHEET_ID).add_worksheet(title=sheet_name, rows="1000", cols="20")
 
-    worksheet.clear()
-    worksheet.append_rows([df.columns.tolist()], value_input_option="USER_ENTERED")
+        worksheet.clear()
+        worksheet.append_rows([df.columns.tolist()], value_input_option="USER_ENTERED")
 
-    # ✅ Clean all data before pushing
-    df = df.replace({np.nan: ""}).fillna("")  # Remove NaNs and None safely
+        # ✅ Clean all data before pushing
+        df = df.replace({np.nan: ""}).fillna("")  # Remove NaNs and None safely
 
-    chunk_size = 500
-    for i in range(0, len(df), chunk_size):
-        chunk = df.iloc[i:i + chunk_size].values.tolist()
-        worksheet.append_rows(chunk, value_input_option="USER_ENTERED")
-        time.sleep(1)  # Avoid rate limit
+        chunk_size = 500
+        for i in range(0, len(df), chunk_size):
+            chunk = df.iloc[i:i + chunk_size].values.tolist()
+            worksheet.append_rows(chunk, value_input_option="USER_ENTERED")
+            time.sleep(1)  # Avoid rate limit
 
 
 

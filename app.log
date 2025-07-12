@@ -14813,3 +14813,19 @@ gspread.exceptions.APIError: APIError: [400]: This action would increase the num
 2025-07-10 11:12:02,239 - INFO - ::1:58650 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.00s
 2025-07-10 11:12:16,503 - ERROR - HTTPException: [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:2559) at POST /audio_data_summary_to_multiple_sheets
 2025-07-10 11:12:16,505 - INFO - ::1:58738 - POST /audio_data_summary_to_multiple_sheets - Status: [91m500[0m - Time: 2.39s - Reason: [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:2559)
+2025-07-12 08:02:36,968 - INFO - ::1:60633 - GET / - Status: [92m200[0m - Time: 0.00s
+2025-07-12 08:02:37,250 - INFO - ::1:60633 - GET /favicon.ico - Status: [93m404[0m - Time: 0.00s - Reason: Not Found
+2025-07-12 08:02:41,893 - INFO - ::1:60633 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-07-12 08:02:42,498 - INFO - ::1:60633 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-07-12 09:15:09,119 - INFO - ::1:61363 - GET /stats-json/yoruba - Status: [92m200[0m - Time: 1.94s
+2025-07-12 09:21:28,833 - INFO - ::1:61469 - GET /stats-json - Status: [92m200[0m - Time: 3.47s
+2025-07-12 09:28:14,814 - INFO - ::1:61599 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-07-12 09:28:15,090 - INFO - ::1:61599 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.01s
+2025-07-12 09:28:37,092 - INFO - ::1:61600 - GET /api/v1/stats-to-sheet/yoruba - Status: [92m200[0m - Time: 6.34s
+2025-07-12 09:30:32,584 - INFO - ::1:61632 - GET /api/v1/stats-to-sheet/igbo - Status: [92m200[0m - Time: 6.24s
+2025-07-12 09:31:58,990 - INFO - ::1:61648 - GET /api/v1/stats-to-sheet/pidgin - Status: [92m200[0m - Time: 5.43s
+2025-07-12 09:33:06,747 - INFO - ::1:61669 - GET /api/v1/stats-to-sheet/hausa - Status: [92m200[0m - Time: 4.34s
+2025-07-12 09:42:33,369 - INFO - ::1:61838 - GET /api/v1/docs - Status: [92m200[0m - Time: 0.00s
+2025-07-12 09:42:33,544 - INFO - ::1:61838 - GET /api/v1/openapi.json - Status: [92m200[0m - Time: 0.02s
+2025-07-12 09:42:41,753 - INFO - ::1:61839 - GET /hourly-summary-read - Status: [92m200[0m - Time: 2.17s
+2025-07-12 09:44:51,661 - INFO - ::1:61858 - GET /hourly-summary - Status: [92m200[0m - Time: 15.29s

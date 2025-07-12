@@ -1,10 +1,12 @@
 from src.routes import github_router
 from src.utils.hourly import hourly
+from src.stats_to_sheet import stats_router
 from fastapi import FastAPI
 import uvicorn,os
 from contextlib import asynccontextmanager
 from fastapi.requests import Request
 from typing import cast
+
 from fastapi.responses import JSONResponse
 from dotenv import load_dotenv
 from src.middleware import register_middleware
@@ -80,6 +82,12 @@ app.include_router(
     tags=["Hourly Data"],
 )
 
+app.include_router(
+    stats_router,
+    prefix=version_prefix,
+    tags=["GitHub API"]
+)
+
 if __name__ == "__main__":
     uvicorn.run(
         app="main:app",
@@ -102,5 +110,3 @@ if __name__ == "__main__":
 #         reload=True if ENV == "development" else False,
 #         proxy_headers=True
 #     )
-
-
