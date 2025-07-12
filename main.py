@@ -85,7 +85,7 @@ app.include_router(
 app.include_router(
     stats_router,
     prefix=version_prefix,
-    tags=["GitHub API"]
+    tags=["Stats to Google Sheets"]
 )
 
 if __name__ == "__main__":
